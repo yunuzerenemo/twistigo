@@ -85,6 +85,13 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid rgba(0,0,0,0.03); box-shadow: var(--shadow);
         }
+        
+        /* İstediğin Büyüme Animasyonu Burada 👇 */
+        .product-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
         .product-card img { width: 100%; height: 160px; object-fit: cover; cursor: pointer; }
         .product-info { padding: 15px; }
         .product-info h3 { font-size: 14px; margin: 0 0 5px; font-weight: 600; color: #1a1a1a; cursor: pointer; }
@@ -99,16 +106,37 @@
         }
         .add-to-cart:hover { background: var(--ana-renk); color: white; }
 
-        /* Modal (Satıcı Detay) */
+        /* Modal (Satıcı Detay + Yorumlar) */
         .modal {
             display: none; position: fixed; z-index: 3000; left: 0; top: 0;
             width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
+            overflow-y: auto;
         }
         .modal-content {
-            background: white; margin: 15% auto; padding: 25px; width: 85%; max-width: 400px;
+            background: white; margin: 10% auto; padding: 25px; width: 85%; max-width: 450px;
             border-radius: 30px; position: relative; animation: slideIn 0.3s ease;
         }
         @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        /* Yorum Alanı Stilleri */
+        .reviews-section {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        .review-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
 
         #cart-sidebar { 
             position: fixed; top: 0; right: -100%; width: 350px; height: 100%; 
@@ -153,8 +181,7 @@
         <p style="font-size: 12px; margin-bottom: 0;">Seçili ürünlerde indirim uygulandı!</p>
     </div>
 
-    <div class="container" id="product-grid">
-        </div>
+    <div class="container" id="product-grid"></div>
 
     <div id="seller-modal" class="modal">
         <div class="modal-content">
@@ -186,14 +213,80 @@
     </nav>
 
     <script>
-        // Ürün Verileri (İndirim burada hesaplanıyor)
+        // Genişletilmiş Ürün Verileri ve Yorumlar
         const products = [
-            { id: 1, name: "Vogue White Edition", oldPrice: 2417, price: 1450, cat: "Aksesuar", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500", seller: "Elite Optik", score: "4.8" },
-            { id: 2, name: "Studio Sound Pro", oldPrice: 3667, price: 2200, cat: "Elektronik", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500", seller: "Tekno Store", score: "4.9" },
-            { id: 3, name: "Speed Runner X", oldPrice: 5167, price: 3100, cat: "Moda", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500", seller: "Spor Dünyası", score: "4.7" },
-            { id: 4, name: "Urban Trek Bag", oldPrice: 1833, price: 1100, cat: "Moda", img: "https://images.unsplash.com/photo-1585333127302-d29237c0ec32?w=500", seller: "Moda Çanta", score: "4.5" },
-            { id: 5, name: "Akıllı Saat Ultra", oldPrice: 4833, price: 2900, cat: "Elektronik", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500", seller: "Twistigo Resmi", score: "5.0" },
-            { id: 6, name: "Güneş Gözlüğü G1", oldPrice: 1417, price: 850, cat: "Aksesuar", img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500", seller: "Gözlük Evi", score: "4.6" }
+            { 
+                id: 1, name: "Vogue White Edition", oldPrice: 2417, price: 1450, cat: "Aksesuar", 
+                img: "https://images.unsplash.com/photo-1544441893-675973e31d92?w=500", seller: "Elite Optik", score: "4.8",
+                reviews: [
+                    { user: "Zeynep T.", rating: 5, text: "Çok şık duruyor, paketleme harikaydı." },
+                    { user: "Murat K.", rating: 4, text: "Göründüğünden bir tık daha büyük ama kaliteli." }
+                ]
+            },
+            { 
+                id: 2, name: "Studio Sound Pro", oldPrice: 3667, price: 2200, cat: "Elektronik", 
+                img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500", seller: "Tekno Store", score: "4.9",
+                reviews: [
+                    { user: "Arda Y.", rating: 5, text: "Baslar ve tizler mükemmel. Bu fiyata kaçmaz." },
+                    { user: "Selin B.", rating: 5, text: "Şarjı çok uzun gidiyor, bayıldım!" }
+                ]
+            },
+            { 
+                id: 3, name: "Speed Runner X", oldPrice: 5167, price: 3100, cat: "Moda", 
+                img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500", seller: "Spor Dünyası", score: "4.7",
+                reviews: [
+                    { user: "Hakan U.", rating: 4, text: "Koşu için harika bir ayakkabı, tam numaranızı alın." }
+                ]
+            },
+            { 
+                id: 4, name: "Urban Trek Bag", oldPrice: 1833, price: 1100, cat: "Moda", 
+                img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500", seller: "Moda Çanta", score: "4.5",
+                reviews: [
+                    { user: "Ece D.", rating: 5, text: "Hem iş hem günlük kullanım için ideal, çok gözlü." }
+                ]
+            },
+            { 
+                id: 5, name: "Akıllı Saat Ultra", oldPrice: 4833, price: 2900, cat: "Elektronik", 
+                img: "https://images.unsplash.com/photo-1508615070457-7baebe4003ab?w=500", seller: "Twistigo Resmi", score: "5.0",
+                reviews: [
+                    { user: "Burak A.", rating: 5, text: "Arayüzü çok hızlı, ekran kalitesi efsane." }
+                ]
+            },
+            { 
+                id: 6, name: "Güneş Gözlüğü G1", oldPrice: 1417, price: 850, cat: "Aksesuar", 
+                img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500", seller: "Gözlük Evi", score: "4.6",
+                reviews: [
+                    { user: "Merve Ç.", rating: 4, text: "Yüzüme tam oturdu, camları çok kaliteli koruyor." }
+                ]
+            },
+            { 
+                id: 7, name: "Minimalist Kahve Makinesi", oldPrice: 4000, price: 2400, cat: "Elektronik", 
+                img: "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=500", seller: "Ev Trendi", score: "4.8",
+                reviews: [
+                    { user: "Cem L.", rating: 5, text: "Mutfağıma çok yakıştı, kahve lezzeti on numara." }
+                ]
+            },
+            { 
+                id: 8, name: "Oversize Denim Ceket", oldPrice: 2000, price: 1200, cat: "Moda", 
+                img: "https://images.unsplash.com/photo-1576995832128-6603a80c9888?w=500", seller: "Stil Butik", score: "4.4",
+                reviews: [
+                    { user: "Derya G.", rating: 4, text: "Kalıbı biraz geniş ama duruşu çok tarz." }
+                ]
+            },
+            { 
+                id: 9, name: "Klasik Deri Kayış Saat", oldPrice: 3167, price: 1900, cat: "Aksesuar", 
+                img: "https://images.unsplash.com/photo-1524592093855-3a6bd339956d?w=500", seller: "Zaman Ustası", score: "4.7",
+                reviews: [
+                    { user: "Ahmet S.", rating: 5, text: "Ağır ve asil duruyor. Takım elbiselerle harika oluyor." }
+                ]
+            },
+            { 
+                id: 10, name: "RGB Oyuncu Mouse", oldPrice: 1500, price: 900, cat: "Elektronik", 
+                img: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500", seller: "Gamer Zone", score: "4.9",
+                reviews: [
+                    { user: "Görkem T.", rating: 5, text: "Tıklama hissiyatı ve ışıklandırması çok iyi, makrolar kolay ayarlanıyor." }
+                ]
+            }
         ];
 
         let cart = [];
@@ -224,18 +317,39 @@
             else displayProducts(products.filter(p => p.cat === category));
         }
 
-        // Satıcı Modalı Açma
+        // Modal Açma (Detay + Gerçekçi Yorumlar)
         function openSeller(id) {
             const p = products.find(item => item.id === id);
             const modal = document.getElementById('seller-modal');
+            
+            // Yıldızları oluşturma
+            const stars = "⭐".repeat(Math.floor(parseFloat(p.score)));
+
+            // Yorumların HTML'ini oluşturma
+            const reviewsHTML = p.reviews.map(r => `
+                <div class="review-item">
+                    <div class="review-header">
+                        <span>${r.user}</span>
+                        <span>${"⭐".repeat(r.rating)}</span>
+                    </div>
+                    <div>${r.text}</div>
+                </div>
+            `).join('');
+
             document.getElementById('modal-body').innerHTML = `
                 <img src="${p.img}" style="width:100%; border-radius:20px; margin-bottom:15px;">
                 <h2 style="margin:0">${p.name}</h2>
                 <p style="color:#888;">Bu ürün <b>${p.seller}</b> tarafından gönderilecektir.</p>
                 <div style="background:#fff3e0; padding:15px; border-radius:15px; display:flex; justify-content:space-between; align-items:center;">
                     <span>Satıcı Puanı:</span>
-                    <span style="color:var(--ana-renk); font-weight:800; font-size:20px;">⭐ ${p.score}</span>
+                    <span style="color:var(--ana-renk); font-weight:800; font-size:18px;">${stars} ${p.score}</span>
                 </div>
+                
+                <div class="reviews-section">
+                    <h3 style="font-size: 16px; margin-bottom: 10px;">Kullanıcı Yorumları (${p.reviews.length})</h3>
+                    ${reviewsHTML}
+                </div>
+
                 <button onclick="addToCart('${p.name}', ${p.price}); closeModal();" class="add-to-cart" style="margin-top:20px; background:var(--ana-renk); color:white; padding:15px;">Sepete Ekle</button>
             `;
             modal.style.display = "block";
