@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twistigo | Elite Shopping</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+        :root {
+            --ana-renk: #ff6700;
+            --ikincil-renk: #2d3436;
+            --gradient: linear-gradient(135deg, #ff6700 0%, #ff8c00 100%);
+            --glass: rgba(255, 255, 255, 0.8);
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            margin: 0; 
+            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); 
+            background-attachment: fixed;
+            padding-bottom: 90px; 
+            color: var(--ikincil-renk);
+        }
+        
+        header { 
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 20px; text-align: center; 
+            position: sticky; top: 0; z-index: 1000; 
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        header h1 { 
+            margin: 0; font-size: 28px; font-weight: 800; 
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+        
+        .cart-trigger { 
+            position: absolute; right: 25px; top: 22px; 
+            background: white; padding: 8px 12px; border-radius: 12px;
+            box-shadow: var(--shadow); cursor: pointer; transition: 0.3s;
+        }
+        .cart-trigger:hover { transform: translateY(-3px); }
+        #cart-count { background: var(--ana-renk); color: white; padding: 2px 6px; border-radius: 6px; font-size: 10px; margin-left: 5px; }
+
+        .search-container { padding: 15px 20px; }
+        .search-box { 
+            width: 100%; padding: 14px 20px; border: none; border-radius: 16px; 
+            background: white; box-shadow: var(--shadow); outline: none; box-sizing: border-box;
+            transition: 0.3s; border: 1px solid transparent;
+        }
+
+        /* Kategori Filtresi */
+        .categories {
+            display: flex; gap: 10px; overflow-x: auto;
+            padding: 0 20px 20px; scrollbar-width: none;
+        }
+        .categories::-webkit-scrollbar { display: none; }
+        .cat-btn {
+            background: white; border: none; padding: 10px 20px; border-radius: 15px;
+            white-space: nowrap; font-weight: 600; cursor: pointer; box-shadow: var(--shadow);
+            transition: 0.3s;
+        }
+        .cat-btn.active { background: var(--ana-renk); color: white; }
+
+        .banner { 
+            margin: 0 20px 25px; padding: 25px; 
+            background: var(--ikincil-renk); border-radius: 20px;
+            color: white; position: relative; overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .banner::after {
+            content: ''; position: absolute; top: -50%; right: -10%; width: 150px; height: 150px;
+            background: var(--ana-renk); filter: blur(60px); opacity: 0.4;
+        }
+
+        .container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 20px; }
+        .product-card { 
+            background: white; border-radius: 24px; overflow: hidden; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0,0,0,0.03); box-shadow: var(--shadow);
+        }
+        .product-card img { width: 100%; height: 160px; object-fit: cover; cursor: pointer; }
+        .product-info { padding: 15px; }
+        .product-info h3 { font-size: 14px; margin: 0 0 5px; font-weight: 600; color: #1a1a1a; cursor: pointer; }
+        
+        /* İndirimli Fiyat Görünümü */
+        .old-price { text-decoration: line-through; color: #888; font-size: 12px; }
+        .price { color: var(--ana-renk); font-weight: 800; font-size: 18px; margin-bottom: 10px; display: block; }
+        
+        .add-to-cart { 
+            width: 100%; background: #f8f9fa; color: var(--ikincil-renk); border: none; 
+            padding: 10px; border-radius: 12px; font-weight: 600; cursor: pointer; transition: 0.3s;
+        }
+        .add-to-cart:hover { background: var(--ana-renk); color: white; }
+
+        /* Modal (Satıcı Detay) */
+        .modal {
+            display: none; position: fixed; z-index: 3000; left: 0; top: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: white; margin: 15% auto; padding: 25px; width: 85%; max-width: 400px;
+            border-radius: 30px; position: relative; animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        #cart-sidebar { 
+            position: fixed; top: 0; right: -100%; width: 350px; height: 100%; 
+            background: white; z-index: 2000; transition: 0.5s; padding: 30px; 
+            box-shadow: -10px 0 50px rgba(0,0,0,0.1); box-sizing: border-box;
+        }
+        #cart-sidebar.active { right: 0; }
+
+        .nav-bar { 
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 400px; background: var(--ikincil-renk); 
+            border-radius: 25px; display: flex; justify-content: space-around; 
+            padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 1000;
+        }
+        .nav-item { color: #888; font-size: 20px; transition: 0.3s; cursor: pointer; }
+        .nav-item.active { color: var(--ana-renk); transform: scale(1.2); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Twistigo</h1>
+        <div class="cart-trigger" onclick="toggleCart()">
+            🛒<span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <div class="search-container">
+        <input type="text" class="search-box" placeholder="Aradığın her şey burada...">
+    </div>
+
+    <div class="categories">
+        <button class="cat-btn active" onclick="filterCat('Hepsi')">Hepsi</button>
+        <button class="cat-btn" onclick="filterCat('Elektronik')">Elektronik</button>
+        <button class="cat-btn" onclick="filterCat('Moda')">Moda</button>
+        <button class="cat-btn" onclick="filterCat('Aksesuar')">Aksesuar</button>
+    </div>
+
+    <div class="banner">
+        <small style="opacity: 0.7;">Sınırlı Süre</small>
+        <div style="font-size: 22px; margin-top: 5px;">%40'a Varan İndirim</div>
+        <p style="font-size: 12px; margin-bottom: 0;">Seçili ürünlerde indirim uygulandı!</p>
+    </div>
+
+    <div class="container" id="product-grid">
+        </div>
+
+    <div id="seller-modal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal()" style="position:absolute; right:20px; top:15px; cursor:pointer; font-size:20px;">✕</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <div id="cart-sidebar">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+            <h2 style="margin:0">Sepetim</h2>
+            <span onclick="toggleCart()" style="cursor:pointer; font-size:24px;">✕</span>
+        </div>
+        <div id="cart-items-list" style="max-height:60vh; overflow-y:auto;"></div>
+        <div style="position:absolute; bottom:30px; left:30px; right:30px;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-weight:800; font-size:18px;">
+                <span>Toplam</span>
+                <span id="total-price">0 TL</span>
+            </div>
+            <button onclick="alert('Ödeme başarıyla gerçekleşti!')" style="width:100%; background:var(--gradient); color:white; border:none; padding:15px; border-radius:15px; font-weight:800; box-shadow: 0 10px 20px rgba(255,103,0,0.3);">ÖDEMEYE GEÇ</button>
+        </div>
+    </div>
+
+    <nav class="nav-bar">
+        <div class="nav-item active">🏠</div>
+        <div class="nav-item">🔍</div>
+        <div class="nav-item" onclick="toggleCart()">🛒</div>
+        <div class="nav-item">👤</div>
+    </nav>
+
+    <script>
+        // Ürün Verileri (İndirim burada hesaplanıyor)
+        const products = [
+            { id: 1, name: "Vogue White Edition", oldPrice: 2417, price: 1450, cat: "Aksesuar", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500", seller: "Elite Optik", score: "4.8" },
+            { id: 2, name: "Studio Sound Pro", oldPrice: 3667, price: 2200, cat: "Elektronik", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500", seller: "Tekno Store", score: "4.9" },
+            { id: 3, name: "Speed Runner X", oldPrice: 5167, price: 3100, cat: "Moda", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500", seller: "Spor Dünyası", score: "4.7" },
+            { id: 4, name: "Urban Trek Bag", oldPrice: 1833, price: 1100, cat: "Moda", img: "https://images.unsplash.com/photo-1585333127302-d29237c0ec32?w=500", seller: "Moda Çanta", score: "4.5" },
+            { id: 5, name: "Akıllı Saat Ultra", oldPrice: 4833, price: 2900, cat: "Elektronik", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500", seller: "Twistigo Resmi", score: "5.0" },
+            { id: 6, name: "Güneş Gözlüğü G1", oldPrice: 1417, price: 850, cat: "Aksesuar", img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500", seller: "Gözlük Evi", score: "4.6" }
+        ];
+
+        let cart = [];
+        let total = 0;
+
+        // Ürünleri Listeleme
+        function displayProducts(items) {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = items.map(p => `
+                <div class="product-card">
+                    <img src="${p.img}" onclick="openSeller(${p.id})">
+                    <div class="product-info">
+                        <h3 onclick="openSeller(${p.id})">${p.name}</h3>
+                        <span class="old-price">${p.oldPrice} TL</span>
+                        <span class="price">${p.price} TL</span>
+                        <button class="add-to-cart" onclick="addToCart('${p.name}', ${p.price})">Sepete Ekle</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Kategori Filtreleme
+        function filterCat(category) {
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if(category === 'Hepsi') displayProducts(products);
+            else displayProducts(products.filter(p => p.cat === category));
+        }
+
+        // Satıcı Modalı Açma
+        function openSeller(id) {
+            const p = products.find(item => item.id === id);
+            const modal = document.getElementById('seller-modal');
+            document.getElementById('modal-body').innerHTML = `
+                <img src="${p.img}" style="width:100%; border-radius:20px; margin-bottom:15px;">
+                <h2 style="margin:0">${p.name}</h2>
+                <p style="color:#888;">Bu ürün <b>${p.seller}</b> tarafından gönderilecektir.</p>
+                <div style="background:#fff3e0; padding:15px; border-radius:15px; display:flex; justify-content:space-between; align-items:center;">
+                    <span>Satıcı Puanı:</span>
+                    <span style="color:var(--ana-renk); font-weight:800; font-size:20px;">⭐ ${p.score}</span>
+                </div>
+                <button onclick="addToCart('${p.name}', ${p.price}); closeModal();" class="add-to-cart" style="margin-top:20px; background:var(--ana-renk); color:white; padding:15px;">Sepete Ekle</button>
+            `;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('seller-modal').style.display = "none";
+        }
+
+        // Sepet İşlemleri
+        function addToCart(name, price) {
+            cart.push({name, price, id: Date.now()});
+            total += price;
+            updateUI();
+            const count = document.getElementById('cart-count');
+            count.style.transform = 'scale(1.5)';
+            setTimeout(() => count.style.transform = 'scale(1)', 200);
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-sidebar').classList.toggle('active');
+        }
+
+        function updateUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const list = document.getElementById('cart-items-list');
+            list.innerHTML = cart.map(item => `
+                <div style="display:flex; justify-content:space-between; margin-bottom:15px; background:#f8f9fa; padding:10px; border-radius:10px;">
+                    <span>${item.name}</span>
+                    <span style="color:var(--ana-renk); font-weight:bold;">${item.price} TL</span>
+                </div>
+            `).join('');
+            document.getElementById('total-price').innerText = total + " TL";
+        }
+
+        // İlk yükleme
+        displayProducts(products);
+
+        // Modal dışına tıklandığında kapat
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('seller-modal')) closeModal();
+        }
+    </script>
+</body>
+</html>
