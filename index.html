@@ -1237,19 +1237,19 @@
                     <div class="filter-group">
                         <div class="filter-title">Fiyat Aralığı</div>
                         <div class="filter-option">
-                            <input type="radio" name="price" value="0-5000" onchange="applyFilters()">
+                            <input type="radio" name="price-filter" value="0-5000" onchange="applyFilters()">
                             <label>0 - 5,000 TL</label>
                         </div>
                         <div class="filter-option">
-                            <input type="radio" name="price" value="5000-15000" onchange="applyFilters()">
+                            <input type="radio" name="price-filter" value="5000-15000" onchange="applyFilters()">
                             <label>5,000 - 15,000 TL</label>
                         </div>
                         <div class="filter-option">
-                            <input type="radio" name="price" value="15000-50000" onchange="applyFilters()">
+                            <input type="radio" name="price-filter" value="15000-50000" onchange="applyFilters()">
                             <label>15,000 - 50,000 TL</label>
                         </div>
                         <div class="filter-option">
-                            <input type="radio" name="price" value="50000+" onchange="applyFilters()">
+                            <input type="radio" name="price-filter" value="50000" onchange="applyFilters()">
                             <label>50,000+ TL</label>
                         </div>
                     </div>
@@ -1257,15 +1257,15 @@
                     <div class="filter-group">
                         <div class="filter-title">Değerlendirme</div>
                         <div class="filter-option">
-                            <input type="checkbox" value="5" onchange="applyFilters()">
+                            <input type="checkbox" class="rating-filter" value="5" onchange="applyFilters()">
                             <label>⭐⭐⭐⭐⭐ 5 Yıldız</label>
                         </div>
                         <div class="filter-option">
-                            <input type="checkbox" value="4" onchange="applyFilters()">
+                            <input type="checkbox" class="rating-filter" value="4" onchange="applyFilters()">
                             <label>⭐⭐⭐⭐ 4+ Yıldız</label>
                         </div>
                         <div class="filter-option">
-                            <input type="checkbox" value="3" onchange="applyFilters()">
+                            <input type="checkbox" class="rating-filter" value="3" onchange="applyFilters()">
                             <label>⭐⭐⭐ 3+ Yıldız</label>
                         </div>
                     </div>
@@ -1273,11 +1273,11 @@
                     <div class="filter-group">
                         <div class="filter-title">Kampanya</div>
                         <div class="filter-option">
-                            <input type="checkbox" id="discount-filter" onchange="applyFilters()">
+                            <input type="checkbox" id="discount-filter" class="campaign-filter" onchange="applyFilters()">
                             <label for="discount-filter">İndirimdeki Ürünler</label>
                         </div>
                         <div class="filter-option">
-                            <input type="checkbox" id="new-filter" onchange="applyFilters()">
+                            <input type="checkbox" id="new-filter" class="campaign-filter" onchange="applyFilters()">
                             <label for="new-filter">Yeni Ürünler</label>
                         </div>
                     </div>
@@ -1528,6 +1528,7 @@
         let filteredProducts = [...products];
         let currentPage = 1;
         const itemsPerPage = 12;
+        let selectedCategory = null;
 
         function init() {
             renderNav();
@@ -1540,30 +1541,72 @@
             const categories = ['Tümü', ...new Set(products.map(p => p.category))];
             const nav = document.getElementById('nav-menu');
             nav.innerHTML = categories.map(cat => `
-                <button class="nav-button ${cat === 'Tümü' ? 'active' : ''}" onclick="filterCategory('${cat}')">${cat}</button>
+                <button class="nav-button ${cat === 'Tümü' ? 'active' : ''}" onclick="filterByCategory('${cat}')">${cat}</button>
             `).join('');
 
             const filters = document.getElementById('category-filters');
             filters.innerHTML = categories.slice(1).map(cat => `
                 <div class="filter-option">
-                    <input type="checkbox" value="${cat}" onchange="applyFilters()">
+                    <input type="checkbox" class="category-filter" value="${cat}" onchange="applyFilters()">
                     <label>${cat}</label>
                 </div>
             `).join('');
         }
 
-        function filterCategory(cat) {
+        function filterByCategory(category) {
             document.querySelectorAll('.nav-button').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
+            
+            // Checkbox'ları sıfırla
+            document.querySelectorAll('.category-filter').forEach(c => c.checked = false);
+            
+            if(category === 'Tümü') {
+                selectedCategory = null;
+            } else {
+                selectedCategory = category;
+            }
+            
+            currentPage = 1;
             applyFilters();
         }
 
         function applyFilters() {
             filteredProducts = products.filter(p => {
-                if(document.getElementById('discount-filter')?.checked && !p.discount) return false;
-                if(document.getElementById('new-filter')?.checked && !p.isNew) return false;
+                // Kategori filtresi - nav buttonundan
+                if(selectedCategory && p.category !== selectedCategory) {
+                    return false;
+                }
+                
+                // Kategori filtresi - sidebar checkboxlarından
+                const selectedCategories = Array.from(document.querySelectorAll('.category-filter:checked')).map(c => c.value);
+                if(selectedCategories.length > 0 && !selectedCategories.includes(p.category)) {
+                    return false;
+                }
+
+                // Fiyat filtresi
+                const priceFilter = document.querySelector('input[name="price-filter"]:checked')?.value;
+                if(priceFilter) {
+                    if(priceFilter === '0-5000' && p.price > 5000) return false;
+                    if(priceFilter === '5000-15000' && (p.price < 5000 || p.price > 15000)) return false;
+                    if(priceFilter === '15000-50000' && (p.price < 15000 || p.price > 50000)) return false;
+                    if(priceFilter === '50000' && p.price < 50000) return false;
+                }
+
+                // Rating filtresi
+                const selectedRatings = Array.from(document.querySelectorAll('.rating-filter:checked')).map(c => parseInt(c.value));
+                if(selectedRatings.length > 0 && !selectedRatings.some(r => p.rating >= r)) return false;
+
+                // İndirim filtresi
+                const discountFilter = document.getElementById('discount-filter');
+                if(discountFilter && discountFilter.checked && !p.discount) return false;
+
+                // Yeni ürün filtresi
+                const newFilter = document.getElementById('new-filter');
+                if(newFilter && newFilter.checked && !p.isNew) return false;
+
                 return true;
             });
+
             currentPage = 1;
             renderProducts();
         }
@@ -1584,6 +1627,13 @@
             const start = (currentPage - 1) * itemsPerPage;
             const pageItems = filteredProducts.slice(start, start + itemsPerPage);
             const grid = document.getElementById('product-grid');
+
+            if(pageItems.length === 0) {
+                grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--text-secondary);">😢 Aradığınız şartlara uygun ürün bulunamadı</div>';
+                document.getElementById('results-text').textContent = 'Sonuç yok';
+                document.getElementById('pagination').innerHTML = '';
+                return;
+            }
 
             grid.innerHTML = pageItems.map(p => `
                 <div class="product-card">
