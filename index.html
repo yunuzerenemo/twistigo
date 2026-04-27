@@ -3,1863 +3,2389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Twistigo - Türkiye'nin en güvenilir online alışveriş platformu. Binlerce ürüne ulaşın!">
+    <meta name="description" content="Twistigo - Türkiye'nin en güvenilir online alışveriş platformu">
     <meta name="theme-color" content="#ff6700">
-    <title>Twistigo | Online Alışveriş Platformu</title>
-    
-    <!-- PRECONNECT -->
+    <title>Twistigo | Online Alışveriş</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
-    
-    <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* ============================================
-           MODERN PROFESSIONAL E-COMMERCE STYLESHEET
-           ============================================ */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            /* PRIMARY COLORS */
-            --primary-600: #ff6700;
-            --primary-700: #e55a00;
-            --primary-50: #fff9f5;
-            --primary-100: #ffe8d6;
-
-            /* NEUTRAL COLORS */
-            --neutral-900: #0a0e27;
-            --neutral-800: #1a1f3a;
-            --neutral-700: #2d3e5f;
-            --neutral-600: #475569;
-            --neutral-500: #64748b;
-            --neutral-400: #94a3b8;
-            --neutral-300: #cbd5e1;
-            --neutral-200: #e2e8f0;
-            --neutral-100: #f1f5f9;
-            --neutral-50: #f8fafc;
-
-            /* SEMANTIC COLORS */
-            --success-600: #16a34a;
-            --warning-600: #ea580c;
-            --danger-600: #dc2626;
-            --info-600: #0284c7;
-
-            /* GRADIENTS */
-            --gradient-primary: linear-gradient(135deg, #ff6700 0%, #ff8c00 100%);
-            --gradient-dark: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
-
-            /* SHADOWS */
-            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-            /* TRANSITIONS */
-            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
-
-            /* SPACING */
-            --spacing-unit: 8px;
+            --orange: #FF5C00;
+            --orange-dark: #D94E00;
+            --orange-light: #FF7A2F;
+            --orange-glow: rgba(255, 92, 0, 0.1);
+            --bg: #ffffff;
+            --surface: #ffffff;
+            --surface2: #f5f5f5;
+            --surface3: #eeeeee;
+            --border: rgba(0,0,0,0.09);
+            --border-hover: rgba(255, 92, 0, 0.4);
+            --text: #111111;
+            --text-muted: #666;
+            --text-dim: #aaa;
+            --success: #16a34a;
+            --danger: #ef4444;
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
         }
 
-        /* ============================================
-           BASE STYLES
-           ============================================ */
-
-        html {
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background-color: var(--neutral-50);
-            color: var(--neutral-900);
-            line-height: 1.6;
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        body.dark-mode {
-            background-color: var(--neutral-900);
-            color: var(--neutral-50);
-        }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--surface2); }
+        ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 10px; }
 
-        /* ============================================
-           TYPOGRAPHY
-           ============================================ */
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            letter-spacing: -0.03em;
-        }
-
-        h2 {
-            font-size: 2rem;
-            letter-spacing: -0.025em;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-        }
-
-        h4 {
-            font-size: 1.25rem;
-        }
-
-        p {
-            color: var(--neutral-600);
-            font-size: 1rem;
-            line-height: 1.625;
-        }
-
-        body.dark-mode p {
-            color: var(--neutral-400);
-        }
-
-        a {
-            color: var(--primary-600);
-            text-decoration: none;
-            transition: color var(--transition-fast);
-        }
-
-        a:hover {
-            color: var(--primary-700);
-        }
-
-        /* ============================================
-           HEADER & NAVIGATION
-           ============================================ */
-
+        /* ── HEADER ────────────────────────────────── */
         header {
-            background: var(--neutral-50);
-            border-bottom: 1px solid var(--neutral-200);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-sm);
-            transition: all var(--transition-fast);
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
         }
 
-        body.dark-mode header {
-            background-color: var(--neutral-900);
-            border-bottom-color: var(--neutral-800);
-        }
-
-        .header-container {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 2rem;
+        .header-inner {
+            max-width: 1440px; margin: 0 auto;
+            padding: 0 2rem;
+            height: 68px;
+            display: flex; align-items: center; gap: 2rem;
         }
 
         .logo {
-            font-size: 1.75rem;
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: var(--font-display);
+            font-size: 1.6rem; font-weight: 800;
+            color: var(--text);
+            cursor: pointer;
+            display: flex; align-items: center; gap: 0.4rem;
             white-space: nowrap;
-            cursor: pointer;
-            transition: transform var(--transition-fast);
+            transition: opacity 0.2s;
+            text-decoration: none;
         }
-
-        .logo:hover {
-            transform: scale(1.02);
-        }
-
-        .search-bar {
-            flex: 1;
-            max-width: 400px;
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--neutral-300);
-            border-radius: 8px;
-            background: var(--neutral-50);
-            font-size: 0.95rem;
-            transition: all var(--transition-fast);
-        }
-
-        body.dark-mode .search-bar input {
-            background-color: var(--neutral-800);
-            border-color: var(--neutral-700);
-            color: var(--neutral-50);
-        }
-
-        .search-bar input:focus {
-            outline: none;
-            border-color: var(--primary-600);
-            box-shadow: 0 0 0 3px rgba(255, 103, 0, 0.1);
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .icon-button {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-size: 1.25rem;
-            position: relative;
-            transition: all var(--transition-fast);
-            border-radius: 8px;
-        }
-
-        .icon-button:hover {
-            background-color: var(--neutral-100);
-            transform: scale(1.05);
-        }
-
-        body.dark-mode .icon-button:hover {
-            background-color: var(--neutral-800);
-        }
-
-        .badge {
-            position: absolute;
-            top: -4px;
-            right: -4px;
-            background: var(--danger-600);
-            color: white;
-            width: 24px;
-            height: 24px;
+        .logo:hover { opacity: 0.85; }
+        .logo-dot {
+            width: 10px; height: 10px;
+            background: var(--orange);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            font-weight: 700;
-            border: 2px solid var(--neutral-50);
+            display: inline-block;
+            box-shadow: 0 0 12px var(--orange);
         }
 
-        body.dark-mode .badge {
-            border-color: var(--neutral-900);
+        .search-wrap {
+            flex: 1; max-width: 480px;
+            position: relative;
+        }
+        .search-wrap svg {
+            position: absolute; left: 14px; top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-dim);
+            pointer-events: none;
+        }
+        .search-wrap input {
+            width: 100%; padding: 0.65rem 1rem 0.65rem 2.8rem;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .search-wrap input::placeholder { color: var(--text-dim); }
+        .search-wrap input:focus {
+            outline: none;
+            border-color: var(--orange);
+            box-shadow: 0 0 0 3px var(--orange-glow);
         }
 
-        /* ============================================
-           NAVIGATION
-           ============================================ */
+        .header-actions { display: flex; align-items: center; gap: 0.5rem; margin-left: auto; }
 
-        .nav-container {
-            max-width: 1440px;
-            margin: 0 auto;
+        .hbtn {
+            width: 42px; height: 42px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            position: relative;
+            color: var(--text-muted);
+        }
+        .hbtn:hover { border-color: var(--border-hover); background: var(--surface3); color: var(--text); }
+        .hbtn svg { pointer-events: none; }
+
+        .hbtn-badge {
+            position: absolute; top: -5px; right: -5px;
+            background: var(--orange);
+            color: white; font-size: 0.65rem; font-weight: 700;
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid var(--bg);
+        }
+
+        /* Giriş yapıldığında hesap butonu */
+        .hbtn.logged-in {
+            width: auto;
+            padding: 0 0.75rem;
+            gap: 0.45rem;
+            border-color: rgba(255,92,0,0.35);
+            background: var(--orange-glow);
+            color: var(--orange);
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            position: relative;
+        }
+        .hbtn.logged-in:hover { background: rgba(255,92,0,0.15); border-color: var(--orange); }
+        .hbtn.logged-in .user-avatar {
+            width: 24px; height: 24px;
+            background: var(--orange);
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.7rem; font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        /* Kullanıcı dropdown menüsü */
+        .user-dropdown {
+            position: absolute; top: calc(100% + 10px); right: 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            min-width: 220px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+            z-index: 2000;
+            overflow: hidden;
+            display: none;
+            animation: dropIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes dropIn {
+            from { opacity: 0; transform: translateY(-8px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .user-dropdown.open { display: block; }
+
+        .dropdown-header {
+            padding: 1rem 1.25rem;
+            background: var(--surface2);
+            border-bottom: 1px solid var(--border);
+        }
+        .dropdown-name {
+            font-family: var(--font-display);
+            font-size: 0.95rem; font-weight: 700;
+            color: var(--text);
+        }
+        .dropdown-email { font-size: 0.78rem; color: var(--text-dim); margin-top: 0.1rem; }
+
+        .dropdown-item {
+            display: flex; align-items: center; gap: 0.65rem;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+            border: none; background: none;
+            width: 100%; text-align: left;
+            font-family: var(--font-body);
+        }
+        .dropdown-item:hover { background: var(--surface2); color: var(--text); }
+        .dropdown-item.danger { color: var(--danger); }
+        .dropdown-item.danger:hover { background: rgba(239,68,68,0.08); color: var(--danger); }
+        .dropdown-divider { height: 1px; background: var(--border); margin: 0.25rem 0; }
+
+        /* ── NAV ───────────────────────────────────── */
+        .nav-bar {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1440px; margin: 0 auto;
             padding: 0 2rem;
-            display: flex;
-            gap: 0.5rem;
-            overflow-x: auto;
+            display: flex; gap: 0; overflow-x: auto;
             scrollbar-width: none;
         }
+        .nav-inner::-webkit-scrollbar { display: none; }
 
-        .nav-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        .nav-button {
-            padding: 0.75rem 1.25rem;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--neutral-600);
-            white-space: nowrap;
-            transition: all var(--transition-fast);
-            border-bottom: 2px solid transparent;
+        .nav-btn {
+            padding: 0.85rem 1.25rem;
+            border: none; background: none;
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            font-size: 0.875rem; font-weight: 500;
+            cursor: pointer; white-space: nowrap;
             position: relative;
+            transition: color 0.2s;
         }
-
-        body.dark-mode .nav-button {
-            color: var(--neutral-400);
+        .nav-btn::after {
+            content: '';
+            position: absolute; bottom: 0; left: 1.25rem; right: 1.25rem;
+            height: 2px; background: var(--orange);
+            transform: scaleX(0); transition: transform 0.2s;
         }
+        .nav-btn:hover { color: var(--text); }
+        .nav-btn.active { color: var(--orange); }
+        .nav-btn.active::after { transform: scaleX(1); }
 
-        .nav-button:hover {
-            color: var(--primary-600);
-        }
-
-        .nav-button.active {
-            color: var(--primary-600);
-            border-bottom-color: var(--primary-600);
-        }
-
-        /* ============================================
-           HERO SECTION
-           ============================================ */
-
+        /* ── HERO ──────────────────────────────────── */
         .hero {
-            background: var(--gradient-primary);
+            position: relative; overflow: hidden;
+            padding: 5rem 2rem 5rem;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 600px 400px at 80% 50%, rgba(255,92,0,0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 300px 300px at 20% 80%, rgba(255,92,0,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+        .hero-inner {
+            max-width: 1440px; margin: 0 auto;
+            position: relative; z-index: 2;
+            display: flex; align-items: center; gap: 4rem;
+        }
+        .hero-text { flex: 1; }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--orange-glow);
+            border: 1px solid rgba(255,92,0,0.3);
+            color: var(--orange);
+            padding: 0.35rem 0.9rem;
+            border-radius: 100px;
+            font-size: 0.8rem; font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            font-weight: 800; line-height: 1.1;
+            margin-bottom: 1.25rem;
+        }
+        .hero-title span { color: var(--orange); }
+        .hero-sub {
+            font-size: 1.1rem; color: var(--text-muted);
+            max-width: 480px; margin-bottom: 2.5rem; line-height: 1.7;
+        }
+        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.85rem 1.8rem;
+            background: var(--orange);
             color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            position: relative;
+            font-family: var(--font-body);
+            font-size: 0.95rem; font-weight: 600;
+            border: none; border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-primary:hover {
+            background: var(--orange-light);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(255,92,0,0.35);
+        }
+        .btn-ghost {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.85rem 1.8rem;
+            background: transparent;
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            font-size: 0.95rem; font-weight: 500;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .btn-ghost:hover { border-color: var(--border-hover); color: var(--text); }
+
+        .hero-stats {
+            display: flex; gap: 2.5rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .stat-val {
+            font-family: var(--font-display);
+            font-size: 1.8rem; font-weight: 800;
+            color: var(--text);
+        }
+        .stat-label { font-size: 0.8rem; color: var(--text-dim); margin-top: 0.1rem; }
+
+        .hero-card-stack { position: relative; width: 320px; flex-shrink: 0; }
+        .hero-card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.25rem;
+            display: flex; align-items: center; gap: 1rem;
+        }
+        .hero-card + .hero-card { margin-top: 1rem; }
+        .hero-card-img {
+            width: 64px; height: 64px;
+            border-radius: 10px;
+            object-fit: cover;
+            background: var(--surface3);
+        }
+        .hero-card-name { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.25rem; }
+        .hero-card-price { color: var(--orange); font-weight: 700; font-size: 0.95rem; }
+        .hero-card-badge {
+            margin-left: auto;
+            background: rgba(34,197,94,0.15);
+            color: var(--success);
+            border: 1px solid rgba(34,197,94,0.3);
+            padding: 0.2rem 0.55rem;
+            border-radius: 6px;
+            font-size: 0.75rem; font-weight: 600;
+        }
+
+        /* ── MAIN LAYOUT ───────────────────────────── */
+        .main-wrap {
+            max-width: 1440px; margin: 0 auto;
+            padding: 2.5rem 2rem;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 2.5rem;
+        }
+
+        /* ── SIDEBAR ───────────────────────────────── */
+        .sidebar {
+            position: sticky; top: 90px;
+            height: fit-content;
+        }
+
+        .filter-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            pointer-events: none;
+        .filter-card-header {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between;
         }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
+        .filter-card-title {
+            font-family: var(--font-display);
+            font-size: 0.85rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--text-muted);
         }
-
-        .hero h1 {
-            margin-bottom: 1rem;
-            font-size: 3rem;
+        .filter-clear {
+            font-size: 0.75rem; color: var(--orange);
+            cursor: pointer; background: none; border: none;
+            font-family: var(--font-body);
         }
+        .filter-clear:hover { text-decoration: underline; }
 
-        .hero p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 0.875rem 2rem;
-            background: white;
-            color: var(--primary-600);
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
+        .filter-section { padding: 1.1rem 1.25rem; border-bottom: 1px solid var(--border); }
+        .filter-section:last-child { border-bottom: none; }
+        .filter-section-label {
+            font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--text-dim);
+            margin-bottom: 0.9rem;
             cursor: pointer;
-            transition: all var(--transition-fast);
-            box-shadow: var(--shadow-md);
+            display: flex; justify-content: space-between; align-items: center;
         }
+        .filter-section-label svg { transition: transform 0.2s; }
+        .filter-section-label.collapsed svg { transform: rotate(-90deg); }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* ============================================
-           MAIN CONTAINER
-           ============================================ */
-
-        .container {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        /* ============================================
-           FILTER SIDEBAR
-           ============================================ */
-
-        .filter-section {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .sidebar {
-            background: var(--neutral-50);
-            border-radius: 12px;
-            padding: 1.5rem;
-            height: fit-content;
-            box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 100px;
-        }
-
-        body.dark-mode .sidebar {
-            background-color: var(--neutral-800);
-        }
-
-        .filter-group {
-            margin-bottom: 1.75rem;
-            padding-bottom: 1.75rem;
-            border-bottom: 1px solid var(--neutral-200);
-        }
-
-        body.dark-mode .filter-group {
-            border-bottom-color: var(--neutral-700);
-        }
-
-        .filter-group:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .filter-title {
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            color: var(--neutral-700);
-            margin-bottom: 1rem;
-            letter-spacing: 0.05em;
-        }
-
-        body.dark-mode .filter-title {
-            color: var(--neutral-300);
-        }
-
-        .filter-option {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.75rem;
+        .filter-opts { display: flex; flex-direction: column; gap: 0.5rem; }
+        .filter-opt {
+            display: flex; align-items: center; gap: 0.65rem;
             cursor: pointer;
         }
-
-        .filter-option input {
-            width: 18px;
-            height: 18px;
-            margin-right: 0.75rem;
+        .filter-opt input[type=checkbox],
+        .filter-opt input[type=radio] {
+            width: 16px; height: 16px;
+            accent-color: var(--orange);
             cursor: pointer;
-            accent-color: var(--primary-600);
         }
-
-        .filter-option label {
-            font-size: 0.95rem;
-            cursor: pointer;
-            flex: 1;
-            user-select: none;
+        .filter-opt label {
+            font-size: 0.875rem; color: var(--text-muted);
+            cursor: pointer; flex: 1;
+            transition: color 0.15s;
         }
+        .filter-opt:hover label { color: var(--text); }
 
-        /* ============================================
-           PRODUCT GRID
-           ============================================ */
+        /* ── PRODUCT AREA ──────────────────────────── */
+        .products-area { min-width: 0; }
 
-        .products-section {
-            flex: 1;
+        .toolbar {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap; gap: 1rem;
         }
-
-        .products-toolbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background: var(--neutral-50);
-            border-radius: 12px;
-        }
-
-        body.dark-mode .products-toolbar {
-            background-color: var(--neutral-800);
-        }
-
-        .products-toolbar h2 {
-            font-size: 1.25rem;
+        .toolbar-left { display: flex; align-items: center; gap: 0.75rem; }
+        .results-count {
+            font-family: var(--font-display);
+            font-size: 1.1rem; font-weight: 700;
         }
 
         .sort-select {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--neutral-300);
-            border-radius: 8px;
-            background: var(--neutral-50);
+            padding: 0.55rem 1rem;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 0.875rem;
             cursor: pointer;
-            font-weight: 500;
-            transition: all var(--transition-fast);
+            transition: border-color 0.2s;
         }
+        .sort-select:focus { outline: none; border-color: var(--orange); }
+        .sort-select option { background: var(--surface2); }
 
-        body.dark-mode .sort-select {
-            background-color: var(--neutral-700);
-            border-color: var(--neutral-600);
-            color: var(--neutral-50);
-        }
-
-        .sort-select:focus {
-            outline: none;
-            border-color: var(--primary-600);
-            box-shadow: 0 0 0 3px rgba(255, 103, 0, 0.1);
-        }
-
+        /* ── PRODUCT GRID ──────────────────────────── */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.25rem;
         }
-
-        @media (max-width: 1024px) {
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            }
-
-            .filter-section {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                position: static;
-                padding: 1rem;
-                gap: 1rem;
-            }
-
-            .filter-group {
-                border: 1px solid var(--neutral-200);
-                padding: 1rem;
-                margin: 0;
-                border-radius: 8px;
-            }
-
-            body.dark-mode .filter-group {
-                border-color: var(--neutral-700);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* ============================================
-           PRODUCT CARD
-           ============================================ */
 
         .product-card {
-            background: var(--neutral-50);
-            border-radius: 12px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all var(--transition-normal);
-            display: flex;
-            flex-direction: column;
+            display: flex; flex-direction: column;
             cursor: pointer;
+            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
             position: relative;
         }
-
-        body.dark-mode .product-card {
-            background-color: var(--neutral-800);
-        }
-
         .product-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
         }
 
-        .product-image-wrapper {
+        .product-img-wrap {
             position: relative;
-            width: 100%;
             padding-top: 100%;
-            background: var(--neutral-200);
+            background: var(--surface2);
             overflow: hidden;
         }
-
-        body.dark-mode .product-image-wrapper {
-            background-color: var(--neutral-700);
-        }
-
-        .product-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        .product-img {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
             object-fit: cover;
-            transition: transform var(--transition-normal);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
+        .product-card:hover .product-img { transform: scale(1.07); }
 
-        .product-card:hover .product-image {
-            transform: scale(1.05);
+        .product-badges {
+            position: absolute; top: 10px; left: 10px;
+            display: flex; flex-direction: column; gap: 0.35rem;
         }
-
-        .product-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            padding: 0.5rem 0.75rem;
+        .pbadge {
+            padding: 0.25rem 0.55rem;
             border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            z-index: 2;
+            font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.04em;
         }
+        .pbadge-new { background: #22c55e; color: white; }
+        .pbadge-sale { background: var(--orange); color: white; }
 
-        .badge-new {
-            background: var(--success-600);
-            color: white;
-        }
-
-        .badge-sale {
-            background: var(--danger-600);
-            color: white;
-        }
-
-        .favorite-button {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            width: 40px;
-            height: 40px;
+        .fav-btn {
+            position: absolute; top: 10px; right: 10px;
+            width: 36px; height: 36px;
+            background: rgba(11,12,14,0.75);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--border);
             border-radius: 50%;
-            background: white;
-            border: none;
+            display: flex; align-items: center; justify-content: center;
             cursor: pointer;
-            font-size: 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all var(--transition-fast);
-            box-shadow: var(--shadow-md);
+            transition: all 0.2s;
             z-index: 3;
         }
+        .fav-btn:hover { border-color: #ef4444; background: rgba(239,68,68,0.15); transform: scale(1.1); }
+        .fav-btn.liked { border-color: #ef4444; background: rgba(239,68,68,0.2); }
+        .fav-btn svg { pointer-events: none; }
 
-        .favorite-button:hover {
-            transform: scale(1.1);
+        .product-body { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
+        .product-cat {
+            font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--orange); margin-bottom: 0.4rem;
         }
-
-        .favorite-button.liked {
-            color: var(--danger-600);
-        }
-
-        .product-content {
-            padding: 1.25rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-category {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--primary-600);
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.05em;
-        }
-
         .product-name {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
-            color: var(--neutral-900);
-            overflow: hidden;
-            text-overflow: ellipsis;
+            font-family: var(--font-display);
+            font-size: 0.95rem; font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 0.5rem;
+            color: var(--text);
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
+            overflow: hidden;
         }
-
-        body.dark-mode .product-name {
-            color: var(--neutral-50);
-        }
-
         .product-rating {
-            font-size: 0.875rem;
+            display: flex; align-items: center; gap: 0.4rem;
+            font-size: 0.8rem; color: var(--text-dim);
             margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
+        .stars { color: #f59e0b; }
 
-        .product-pricing {
-            margin-bottom: 1rem;
-            margin-top: auto;
+        .product-price-row {
+            display: flex; align-items: baseline; gap: 0.5rem;
+            margin-bottom: 0.85rem; margin-top: auto;
         }
-
-        .product-price {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary-600);
-            display: inline-block;
+        .price-now {
+            font-family: var(--font-body);
+            font-size: 1.15rem; font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.01em;
         }
-
-        .product-old-price {
-            font-size: 0.875rem;
-            color: var(--neutral-500);
+        .price-old {
+            font-size: 0.8rem; color: var(--text-dim);
             text-decoration: line-through;
-            margin-left: 0.5rem;
+        }
+        .price-save {
+            margin-left: auto;
+            background: rgba(34,197,94,0.12);
+            color: var(--success);
+            border: 1px solid rgba(34,197,94,0.25);
+            padding: 0.15rem 0.45rem;
+            border-radius: 5px;
+            font-size: 0.72rem; font-weight: 700;
         }
 
-        .add-to-cart-btn {
+        .add-btn {
             width: 100%;
-            padding: 0.75rem;
-            background: var(--primary-600);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
+            padding: 0.7rem;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 0.875rem; font-weight: 600;
             cursor: pointer;
-            transition: all var(--transition-fast);
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+            display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+        }
+        .add-btn:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: white;
         }
 
-        .add-to-cart-btn:hover {
-            background: var(--primary-700);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* ============================================
-           PAGINATION
-           ============================================ */
-
+        /* ── PAGINATION ────────────────────────────── */
         .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin: 3rem 0;
-            flex-wrap: wrap;
+            display: flex; justify-content: center; gap: 0.4rem;
+            margin-top: 3rem; flex-wrap: wrap;
         }
-
-        .page-button {
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--neutral-300);
-            background: var(--neutral-50);
-            color: var(--neutral-900);
-            border-radius: 8px;
+        .page-btn {
+            width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            font-size: 0.875rem; font-weight: 500;
             cursor: pointer;
-            font-weight: 500;
-            transition: all var(--transition-fast);
+            transition: all 0.2s;
         }
+        .page-btn:hover { border-color: var(--border-hover); color: var(--text); }
+        .page-btn.active { background: var(--orange); border-color: var(--orange); color: white; }
+        .page-btn-wide { width: auto; padding: 0 1rem; }
 
-        body.dark-mode .page-button {
-            background-color: var(--neutral-800);
-            border-color: var(--neutral-700);
-            color: var(--neutral-50);
-        }
-
-        .page-button:hover {
-            border-color: var(--primary-600);
-            color: var(--primary-600);
-        }
-
-        .page-button.active {
-            background: var(--primary-600);
-            color: white;
-            border-color: var(--primary-600);
-        }
-
-        /* ============================================
-           MODAL
-           ============================================ */
-
-        .modal {
+        /* ── PRODUCT MODAL ─────────────────────────── */
+        .modal-overlay {
             display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(4px);
-            animation: fadeIn var(--transition-normal);
+            position: fixed; inset: 0; z-index: 2000;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(6px);
+            align-items: center; justify-content: center;
+            padding: 1rem;
         }
+        .modal-overlay.active { display: flex; }
 
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .modal-content {
-            background: var(--neutral-50);
-            max-width: 600px;
-            width: 90%;
-            border-radius: 16px;
-            padding: 2rem;
+        .modal-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            width: 100%; max-width: 640px;
+            max-height: 90vh; overflow-y: auto;
             position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-            animation: slideUp var(--transition-normal);
+            animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.92) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        body.dark-mode .modal-content {
-            background-color: var(--neutral-800);
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 32px;
-            height: 32px;
-            border: none;
-            background: none;
-            font-size: 1.5rem;
+        .modal-close-btn {
+            position: absolute; top: 1rem; right: 1rem; z-index: 10;
+            width: 36px; height: 36px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-muted);
+            display: flex; align-items: center; justify-content: center;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all var(--transition-fast);
-            border-radius: 8px;
+            transition: all 0.2s;
         }
+        .modal-close-btn:hover { border-color: var(--border-hover); color: var(--text); }
 
-        .modal-close:hover {
-            background: var(--neutral-200);
-        }
-
-        body.dark-mode .modal-close:hover {
-            background: var(--neutral-700);
-        }
-
-        .modal-image {
-            width: 100%;
-            height: 350px;
+        .modal-img {
+            width: 100%; height: 300px;
             object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
+            border-radius: 18px 18px 0 0;
         }
-
+        .modal-body-inner { padding: 1.75rem; }
+        .modal-cat {
+            font-size: 0.72rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--orange); margin-bottom: 0.5rem;
+        }
         .modal-title {
-            font-size: 1.75rem;
+            font-family: var(--font-display);
+            font-size: 1.6rem; font-weight: 800;
             margin-bottom: 0.5rem;
         }
-
-        .modal-seller {
-            color: var(--neutral-600);
-            margin-bottom: 1.5rem;
+        .modal-seller { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem; }
+        .modal-chips { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+        .chip {
+            padding: 0.3rem 0.75rem;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.8rem; color: var(--text-muted);
         }
+        .chip-orange { border-color: rgba(255,92,0,0.4); color: var(--orange); background: var(--orange-glow); }
 
-        body.dark-mode .modal-seller {
-            color: var(--neutral-400);
-        }
-
-        .modal-badges {
-            display: flex;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .modal-badge {
-            padding: 0.5rem 1rem;
-            background: var(--primary-50);
-            color: var(--primary-700);
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-
-        .modal-pricing {
-            background: var(--primary-50);
-            padding: 1.5rem;
+        .modal-price-block {
+            background: var(--surface2);
+            border: 1px solid var(--border);
             border-radius: 12px;
-            margin-bottom: 1.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
         }
-
-        body.dark-mode .modal-pricing {
-            background: rgba(255, 103, 0, 0.1);
+        .modal-price-now {
+            font-family: var(--font-body);
+            font-size: 2rem; font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+        .modal-price-old {
+            font-size: 1rem; color: var(--text-dim);
+            text-decoration: line-through;
+        }
+        .modal-save-badge {
+            margin-left: auto;
+            background: rgba(34,197,94,0.12);
+            color: var(--success);
+            border: 1px solid rgba(34,197,94,0.25);
+            padding: 0.4rem 0.9rem;
+            border-radius: 8px;
+            font-weight: 700;
         }
 
         .modal-add-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--gradient-primary);
+            width: 100%; padding: 1rem;
+            background: var(--orange);
             color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1rem;
+            font-family: var(--font-display);
+            font-size: 1rem; font-weight: 700;
+            border: none; border-radius: 10px;
             cursor: pointer;
-            transition: all var(--transition-fast);
-            margin-bottom: 1rem;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 1.5rem;
         }
-
         .modal-add-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+            background: var(--orange-light);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(255,92,0,0.35);
         }
 
-        .reviews-section {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--neutral-200);
+        .reviews-title {
+            font-family: var(--font-display);
+            font-size: 0.85rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--text-dim); margin-bottom: 0.9rem;
         }
-
-        body.dark-mode .reviews-section {
-            border-top-color: var(--neutral-700);
-        }
-
-        .review {
-            margin-bottom: 1rem;
+        .review-item {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
             padding: 1rem;
-            background: var(--neutral-100);
-            border-radius: 8px;
+            margin-bottom: 0.6rem;
+        }
+        .review-header {
+            display: flex; justify-content: space-between;
+            margin-bottom: 0.4rem;
+        }
+        .review-user { font-weight: 600; font-size: 0.875rem; }
+        .review-text { font-size: 0.875rem; color: var(--text-muted); }
+
+        /* ── AUTH MODAL ────────────────────────────── */
+        .auth-overlay {
+            display: none;
+            position: fixed; inset: 0; z-index: 3000;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            align-items: center; justify-content: center;
+            padding: 1rem;
+        }
+        .auth-overlay.active { display: flex; }
+
+        .auth-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            width: 100%; max-width: 420px;
+            overflow: hidden;
+            animation: modalIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
         }
 
-        body.dark-mode .review {
-            background: var(--neutral-700);
+        /* Dekoratif üst şerit */
+        .auth-top-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange), var(--orange-light), #ffb347);
         }
 
-        /* ============================================
-           CART SIDEBAR
-           ============================================ */
+        .auth-header {
+            padding: 1.75rem 2rem 0;
+            display: flex; align-items: flex-start; justify-content: space-between;
+        }
+        .auth-logo-wrap {
+            display: flex; align-items: center; gap: 0.4rem;
+            font-family: var(--font-display);
+            font-size: 1.2rem; font-weight: 800;
+            color: var(--text);
+        }
+        .auth-close {
+            width: 32px; height: 32px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .auth-close:hover { border-color: var(--border-hover); color: var(--text); }
 
-        .cart-sidebar {
-            position: fixed;
-            top: 0;
-            right: -450px;
-            width: 450px;
-            height: 100vh;
-            background: var(--neutral-50);
-            z-index: 1500;
-            box-shadow: var(--shadow-xl);
-            transition: right var(--transition-normal);
+        /* Tab switcher */
+        .auth-tabs {
             display: flex;
-            flex-direction: column;
+            margin: 1.5rem 2rem 0;
+            background: var(--surface2);
+            border-radius: 10px;
+            padding: 4px;
+            gap: 4px;
         }
-
-        body.dark-mode .cart-sidebar {
-            background-color: var(--neutral-900);
-        }
-
-        .cart-sidebar.active {
-            right: 0;
-        }
-
-        .cart-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--neutral-200);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        body.dark-mode .cart-header {
-            border-bottom-color: var(--neutral-800);
-        }
-
-        .cart-items {
+        .auth-tab {
             flex: 1;
-            overflow-y: auto;
-            padding: 1.5rem;
+            padding: 0.6rem;
+            border: none; background: none;
+            font-family: var(--font-body);
+            font-size: 0.875rem; font-weight: 600;
+            color: var(--text-muted);
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.2s;
         }
+        .auth-tab.active {
+            background: var(--surface);
+            color: var(--text);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+        }
+
+        .auth-form-wrap { padding: 1.5rem 2rem 2rem; }
+
+        /* Panel göster/gizle */
+        .auth-panel { display: none; }
+        .auth-panel.active { display: block; }
+
+        .auth-welcome {
+            font-family: var(--font-display);
+            font-size: 1.4rem; font-weight: 800;
+            margin-bottom: 0.35rem;
+        }
+        .auth-sub {
+            font-size: 0.85rem; color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .auth-field { margin-bottom: 1rem; }
+        .auth-field label {
+            display: block;
+            font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.07em;
+            color: var(--text-dim);
+            margin-bottom: 0.45rem;
+        }
+        .auth-input-wrap { position: relative; }
+        .auth-input-wrap svg {
+            position: absolute; left: 12px; top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-dim);
+            pointer-events: none;
+        }
+        .auth-input {
+            width: 100%;
+            padding: 0.75rem 0.9rem 0.75rem 2.6rem;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .auth-input::placeholder { color: var(--text-dim); }
+        .auth-input:focus {
+            outline: none;
+            border-color: var(--orange);
+            box-shadow: 0 0 0 3px var(--orange-glow);
+        }
+        .auth-input.error { border-color: var(--danger); box-shadow: 0 0 0 3px rgba(239,68,68,0.1); }
+
+        /* Şifre göster/gizle butonu */
+        .toggle-pass {
+            position: absolute; right: 12px; top: 50%;
+            transform: translateY(-50%);
+            background: none; border: none;
+            color: var(--text-dim);
+            cursor: pointer;
+            display: flex; align-items: center;
+            transition: color 0.2s;
+        }
+        .toggle-pass:hover { color: var(--text); }
+
+        .auth-error-msg {
+            font-size: 0.78rem; color: var(--danger);
+            margin-top: 0.4rem;
+            display: none;
+        }
+        .auth-error-msg.show { display: block; }
+
+        .auth-submit {
+            width: 100%; padding: 0.85rem;
+            background: var(--orange);
+            color: white;
+            font-family: var(--font-display);
+            font-size: 0.95rem; font-weight: 700;
+            border: none; border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            margin-top: 0.5rem;
+        }
+        .auth-submit:hover {
+            background: var(--orange-light);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(255,92,0,0.35);
+        }
+        .auth-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        /* Divider */
+        .auth-divider {
+            display: flex; align-items: center; gap: 0.75rem;
+            margin: 1.25rem 0;
+            color: var(--text-dim); font-size: 0.8rem;
+        }
+        .auth-divider::before,
+        .auth-divider::after {
+            content: ''; flex: 1;
+            height: 1px; background: var(--border);
+        }
+
+        /* Sosyal giriş butonları */
+        .social-btn {
+            width: 100%; padding: 0.75rem;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+            font-family: var(--font-body);
+            font-size: 0.875rem; font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
+            margin-bottom: 0.6rem;
+        }
+        .social-btn:hover { border-color: var(--border-hover); color: var(--text); background: var(--surface3); }
+
+        .auth-switch {
+            text-align: center;
+            font-size: 0.82rem; color: var(--text-dim);
+            margin-top: 1.25rem;
+        }
+        .auth-switch-link {
+            color: var(--orange);
+            cursor: pointer; font-weight: 600;
+            background: none; border: none;
+            font-family: var(--font-body);
+            font-size: inherit;
+        }
+        .auth-switch-link:hover { text-decoration: underline; }
+
+        /* Şifre güç göstergesi */
+        .pass-strength {
+            display: flex; gap: 4px;
+            margin-top: 0.5rem;
+        }
+        .pass-strength-bar {
+            flex: 1; height: 3px;
+            background: var(--surface3);
+            border-radius: 2px;
+            transition: background 0.3s;
+        }
+        .pass-strength-bar.weak { background: var(--danger); }
+        .pass-strength-bar.medium { background: #f59e0b; }
+        .pass-strength-bar.strong { background: var(--success); }
+        .pass-strength-label {
+            font-size: 0.72rem; color: var(--text-dim);
+            margin-top: 0.3rem;
+        }
+
+        /* Checkbox */
+        .auth-checkbox-row {
+            display: flex; align-items: flex-start; gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+        .auth-checkbox-row input[type=checkbox] {
+            width: 16px; height: 16px;
+            accent-color: var(--orange);
+            flex-shrink: 0; margin-top: 2px;
+            cursor: pointer;
+        }
+        .auth-checkbox-row label {
+            font-size: 0.8rem; color: var(--text-muted);
+            cursor: pointer; line-height: 1.5;
+        }
+        .auth-checkbox-row a { color: var(--orange); text-decoration: none; }
+        .auth-checkbox-row a:hover { text-decoration: underline; }
+
+        /* Şifremi unuttum linki */
+        .forgot-link {
+            float: right;
+            font-size: 0.78rem; color: var(--orange);
+            cursor: pointer; background: none; border: none;
+            font-family: var(--font-body);
+        }
+        .forgot-link:hover { text-decoration: underline; }
+
+        /* ── CART SIDEBAR ──────────────────────────── */
+        .cart-panel {
+            position: fixed; top: 0; right: -480px;
+            width: 460px; height: 100vh;
+            background: var(--surface);
+            border-left: 1px solid var(--border);
+            z-index: 1500;
+            display: flex; flex-direction: column;
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -20px 0 60px rgba(0,0,0,0.5);
+        }
+        .cart-panel.active { right: 0; }
+
+        .cart-panel-header {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .cart-panel-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem; font-weight: 800;
+        }
+
+        .cart-panel-items { flex: 1; overflow-y: auto; padding: 1.25rem 1.5rem; }
 
         .cart-item {
             display: grid;
-            grid-template-columns: 80px 1fr 60px;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--neutral-200);
+            grid-template-columns: 72px 1fr 32px;
+            gap: 0.9rem;
+            padding-bottom: 1.1rem;
+            margin-bottom: 1.1rem;
+            border-bottom: 1px solid var(--border);
         }
-
-        body.dark-mode .cart-item {
-            border-bottom-color: var(--neutral-800);
-        }
-
-        .cart-item-image {
-            width: 80px;
-            height: 80px;
+        .cart-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .cart-img {
+            width: 72px; height: 72px;
+            border-radius: 10px;
             object-fit: cover;
-            border-radius: 8px;
+            background: var(--surface2);
         }
-
-        .cart-item-name {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        .cart-item-name { font-weight: 600; font-size: 0.875rem; margin-bottom: 0.3rem; }
+        .cart-item-price { color: var(--orange); font-weight: 700; font-size: 0.9rem; }
+        .cart-item-qty { color: var(--text-dim); font-size: 0.8rem; margin-top: 0.1rem; }
+        .cart-remove {
+            background: none; border: none;
+            color: var(--text-dim); cursor: pointer;
+            display: flex; align-items: flex-start; justify-content: center;
+            padding-top: 2px;
+            transition: color 0.2s;
         }
+        .cart-remove:hover { color: var(--danger); }
 
-        .cart-item-price {
-            color: var(--primary-600);
-            font-weight: 700;
+        .cart-panel-footer {
+            padding: 1.25rem 1.5rem;
+            border-top: 1px solid var(--border);
         }
-
-        .cart-footer {
-            padding: 1.5rem;
-            border-top: 1px solid var(--neutral-200);
+        .cart-total-row {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 1.1rem;
         }
-
-        body.dark-mode .cart-footer {
-            border-top-color: var(--neutral-800);
+        .cart-total-label { color: var(--text-muted); font-size: 0.875rem; }
+        .cart-total-amount {
+            font-family: var(--font-body);
+            font-size: 1.4rem; font-weight: 700;
+            letter-spacing: -0.01em;
         }
-
-        .cart-total {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
         .checkout-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--gradient-primary);
+            width: 100%; padding: 0.9rem;
+            background: var(--orange);
             color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 700;
+            font-family: var(--font-display);
+            font-size: 0.95rem; font-weight: 700;
+            border: none; border-radius: 10px;
             cursor: pointer;
-            transition: all var(--transition-fast);
+            transition: background 0.2s, transform 0.2s;
         }
-
-        .checkout-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+        .checkout-btn:hover:not(:disabled) {
+            background: var(--orange-light);
+            transform: translateY(-1px);
         }
+        .checkout-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-        /* ============================================
-           PAGES
-           ============================================ */
+        .empty-cart { text-align: center; padding: 3rem 1rem; }
+        .empty-cart-icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.3; }
+        .empty-cart p { color: var(--text-muted); }
 
-        .page {
-            display: none;
+        /* ── PAGES ─────────────────────────────────── */
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* ── ABOUT ─────────────────────────────────── */
+        .about-wrap { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+        .about-hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800; margin-bottom: 1rem;
         }
+        .about-hero-title span { color: var(--orange); }
+        .about-sub { color: var(--text-muted); max-width: 560px; margin-bottom: 3rem; line-height: 1.7; }
 
-        .page.active {
-            display: block;
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem; margin-bottom: 3rem;
         }
+        .about-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            transition: border-color 0.2s;
+        }
+        .about-card:hover { border-color: var(--border-hover); }
+        .about-card-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+        .about-card-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .about-card-text { font-size: 0.875rem; color: var(--text-muted); }
 
-        /* ============================================
-           FOOTER
-           ============================================ */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 2rem;
+        }
+        .stat-item { text-align: center; }
+        .stat-big { font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--orange); }
+        .stat-small { font-size: 0.875rem; color: var(--text-muted); margin-top: 0.2rem; }
 
+        /* ── CONTACT ───────────────────────────────── */
+        .contact-wrap { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+        .contact-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 0.75rem; }
+        .contact-sub { color: var(--text-muted); margin-bottom: 3rem; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } }
+
+        .contact-form { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; }
+        .contact-form h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1.1rem; }
+        .form-group label { display: block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); margin-bottom: 0.5rem; }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.7rem 0.9rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 9px; color: var(--text); font-family: var(--font-body); font-size: 0.9rem; transition: border-color 0.2s; }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-dim); }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--orange); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+
+        .contact-info { display: flex; flex-direction: column; gap: 1rem; }
+        .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem 1.5rem; }
+        .info-card-head { display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--orange); margin-bottom: 0.6rem; }
+        .info-card p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
+
+        /* ── FOOTER ────────────────────────────────── */
         footer {
-            background: var(--neutral-900);
-            color: var(--neutral-50);
-            padding: 3rem 2rem;
+            background: #111; color: #f0f0f0;
+            border-top: none;
+            padding: 3rem 2rem 2rem;
             margin-top: 4rem;
         }
-
-        .footer-content {
-            max-width: 1440px;
-            margin: 0 auto;
+        footer .footer-col h5 { color: #aaa; }
+        footer .footer-col a { color: #888; }
+        footer .footer-col a:hover { color: var(--orange); }
+        footer .footer-bottom { color: #555; border-top-color: rgba(255,255,255,0.08); }
+        footer .footer-brand p { color: #888; }
+        .footer-inner {
+            max-width: 1440px; margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 3rem;
             margin-bottom: 2rem;
         }
+        @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 500px) { .footer-inner { grid-template-columns: 1fr; } }
 
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: white;
-        }
+        .footer-brand p { font-size: 0.875rem; color: var(--text-muted); margin-top: 0.75rem; max-width: 280px; line-height: 1.6; }
+        .footer-col h5 { font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 1rem; }
+        .footer-col a { display: block; font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem; text-decoration: none; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--orange); }
+        .footer-bottom { max-width: 1440px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-dim); }
 
-        .footer-section a {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--neutral-400);
-            transition: color var(--transition-fast);
-        }
-
-        .footer-section a:hover {
-            color: var(--primary-600);
-        }
-
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid var(--neutral-800);
-            text-align: center;
-            color: var(--neutral-400);
-        }
-
-        /* ============================================
-           UTILITIES
-           ============================================ */
-
-        .container-main {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        .empty-state-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
+        /* ── TOAST ─────────────────────────────────── */
         .toast {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            background: var(--neutral-900);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow-lg);
-            z-index: 3000;
-            animation: slideInUp var(--transition-normal);
+            position: fixed; bottom: 2rem; left: 50%;
+            transform: translateX(-50%);
+            background: #111;
+            border: 1px solid rgba(0,0,0,0.15);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            font-size: 0.875rem; font-weight: 500;
+            z-index: 9999;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            animation: toastIn 0.3s ease;
+            white-space: nowrap;
+        }
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
         }
 
-        @keyframes slideInUp {
-            from {
-                transform: translateY(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        /* ── RESPONSIVE ────────────────────────────── */
+        @media (max-width: 1024px) {
+            .main-wrap { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .hero-card-stack { display: none; }
         }
-
         @media (max-width: 768px) {
-            .cart-sidebar {
-                width: 100%;
-                right: -100%;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .hero {
-                padding: 2rem 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .header-container {
-                padding: 0.75rem 1rem;
-                gap: 1rem;
-            }
-
-            .search-bar {
-                max-width: 100%;
-            }
-
-            .products-toolbar {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
-            }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .cart-panel { width: 100%; right: -100%; }
+            .cart-panel.active { right: 0; }
         }
+        @media (max-width: 480px) { .product-grid { grid-template-columns: 1fr; } }
+
+        /* ── DARK MODE ─────────────────────────────── */
+        body.dark-mode {
+            --bg: #0B0C0E;
+            --surface: #111315;
+            --surface2: #181A1D;
+            --surface3: #1E2025;
+            --border: rgba(255,255,255,0.07);
+            --border-hover: rgba(255, 92, 0, 0.4);
+            --text: #F0F0F0;
+            --text-muted: #888;
+            --text-dim: #555;
+            --orange-glow: rgba(255, 92, 0, 0.15);
+        }
+        body.dark-mode header { background: rgba(11,12,14,0.88); }
+        body.dark-mode .hero-grid {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+        }
+        body.dark-mode .search-wrap input { color: var(--text); }
+
+        body { transition: background 0.3s, color 0.3s; }
+        .product-card, .sidebar, .filter-card, .cart-panel,
+        .modal-box, .hbtn, .nav-bar, header { transition: background 0.3s, border-color 0.3s, color 0.3s; }
+
+        .no-results { grid-column: 1/-1; text-align: center; padding: 4rem 2rem; color: var(--text-muted); }
+        .no-results-icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.3; }
+
+        /* Hesap butonu wrapper (dropdown için) */
+        .account-btn-wrap { position: relative; }
     </style>
 </head>
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="header-container">
-            <div class="logo" onclick="showPage('home')">🚀 Twistigo</div>
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Ürün, kategori veya marka ara...">
-            </div>
-            <div class="header-actions">
-                <button class="icon-button" onclick="toggleDarkMode()">🌙</button>
-                <button class="icon-button" onclick="openFavorites()">
-                    ❤️
-                    <span class="badge" id="favorites-badge" style="display:none;">0</span>
-                </button>
-                <button class="icon-button" onclick="toggleCart()">
-                    🛒
-                    <span class="badge" id="cart-badge">0</span>
-                </button>
-                <button class="icon-button" onclick="openAccount()">👤</button>
-            </div>
+
+<!-- HEADER -->
+<header>
+    <div class="header-inner">
+        <a class="logo" onclick="showPage('home')">
+            Twistigo<span class="logo-dot"></span>
+        </a>
+        <div class="search-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input type="text" id="search-input" placeholder="Ürün, kategori veya marka ara…">
         </div>
-    </header>
+        <div class="header-actions">
+            <button class="hbtn theme-toggle" onclick="toggleTheme()" id="theme-btn" title="Tema Değiştir">
+                <svg id="theme-icon-dark" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <svg id="theme-icon-light" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+            </button>
+            <button class="hbtn" onclick="openFavorites()" title="Favoriler">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span class="hbtn-badge" id="favorites-badge" style="display:none;">0</span>
+            </button>
+            <button class="hbtn" onclick="toggleCart()" title="Sepet">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span class="hbtn-badge" id="cart-badge">0</span>
+            </button>
 
-    <!-- NAVIGATION -->
-    <nav class="nav-container" id="nav-menu"></nav>
+            <!-- HESAP BUTONU (dinamik) -->
+            <div class="account-btn-wrap" id="account-btn-wrap">
+                <!-- Giriş yapılmamışsa -->
+                <button class="hbtn" id="account-btn-guest" onclick="openAuth()" title="Giriş Yap / Kayıt Ol">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </button>
+                <!-- Giriş yapılmışsa -->
+                <button class="hbtn logged-in" id="account-btn-user" style="display:none;" onclick="toggleUserDropdown()">
+                    <span class="user-avatar" id="user-avatar-initials">AY</span>
+                    <span id="user-display-name">Kullanıcı</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
 
-    <!-- HOME PAGE -->
-    <div id="home-page" class="page active">
-        <!-- HERO -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Türkiye'nin En Güvenilir E-Ticaret Platformu</h1>
-                <p>Binlerce ürüne erişin, en iyi fiyatlarla alışveriş yapın</p>
-                <button class="cta-button" onclick="document.getElementById('product-grid').scrollIntoView({behavior:'smooth'})">Alışverişe Başla</button>
-            </div>
-        </section>
-
-        <!-- MAIN CONTENT -->
-        <div class="container-main">
-            <div class="filter-section">
-                <!-- SIDEBAR -->
-                <aside class="sidebar">
-                    <div class="filter-title">🔍 FİLTRELE</div>
-                    
-                    <div class="filter-group">
-                        <div class="filter-title">Kategori</div>
-                        <div id="category-filters"></div>
+                <!-- Dropdown menü -->
+                <div class="user-dropdown" id="user-dropdown">
+                    <div class="dropdown-header">
+                        <div class="dropdown-name" id="dropdown-fullname">Ad Soyad</div>
+                        <div class="dropdown-email" id="dropdown-email">email@twistigo.com</div>
                     </div>
-
-                    <div class="filter-group">
-                        <div class="filter-title">Fiyat Aralığı</div>
-                        <div class="filter-option">
-                            <input type="radio" name="price-filter" value="0-5000" onchange="applyFilters()">
-                            <label>0 - 5,000 TL</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="radio" name="price-filter" value="5000-15000" onchange="applyFilters()">
-                            <label>5,000 - 15,000 TL</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="radio" name="price-filter" value="15000-50000" onchange="applyFilters()">
-                            <label>15,000 - 50,000 TL</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="radio" name="price-filter" value="50000" onchange="applyFilters()">
-                            <label>50,000+ TL</label>
-                        </div>
-                    </div>
-
-                    <div class="filter-group">
-                        <div class="filter-title">Değerlendirme</div>
-                        <div class="filter-option">
-                            <input type="checkbox" class="rating-filter" value="5" onchange="applyFilters()">
-                            <label>⭐⭐⭐⭐⭐ 5 Yıldız</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" class="rating-filter" value="4" onchange="applyFilters()">
-                            <label>⭐⭐⭐⭐ 4+ Yıldız</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" class="rating-filter" value="3" onchange="applyFilters()">
-                            <label>⭐⭐⭐ 3+ Yıldız</label>
-                        </div>
-                    </div>
-
-                    <div class="filter-group">
-                        <div class="filter-title">Kampanya</div>
-                        <div class="filter-option">
-                            <input type="checkbox" id="discount-filter" class="campaign-filter" onchange="applyFilters()">
-                            <label for="discount-filter">İndirimdeki Ürünler</label>
-                        </div>
-                        <div class="filter-option">
-                            <input type="checkbox" id="new-filter" class="campaign-filter" onchange="applyFilters()">
-                            <label for="new-filter">Yeni Ürünler</label>
-                        </div>
-                    </div>
-                </aside>
-
-                <!-- PRODUCTS -->
-                <div class="products-section">
-                    <div class="products-toolbar">
-                        <h2 id="results-text">Ürün Yükleniyor...</h2>
-                        <select class="sort-select" id="sort-select" onchange="applySort()">
-                            <option value="newest">En Yeni</option>
-                            <option value="price-asc">Fiyat: Düşükten Yükseğe</option>
-                            <option value="price-desc">Fiyat: Yüksekten Düşüğe</option>
-                            <option value="rating">En Yüksek Puan</option>
-                            <option value="sales">En Çok Satılan</option>
-                        </select>
-                    </div>
-
-                    <div class="product-grid" id="product-grid"></div>
-
-                    <div class="pagination" id="pagination"></div>
+                    <button class="dropdown-item" onclick="showToast('👤 Profil sayfası yakında!'); closeUserDropdown()">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Profilim
+                    </button>
+                    <button class="dropdown-item" onclick="showToast('📦 Siparişlerim yakında!'); closeUserDropdown()">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+                        Siparişlerim
+                    </button>
+                    <button class="dropdown-item" onclick="openFavorites(); closeUserDropdown()">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        Favorilerim
+                    </button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item danger" onclick="logoutUser()">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                        Çıkış Yap
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+</header>
 
-    <!-- ABOUT PAGE -->
-    <div id="about-page" class="page">
-        <div class="container-main">
-            <div style="padding: 4rem 0;">
-                <h1 style="margin-bottom: 2rem;">Twistigo Hakkında</h1>
-                
-                <div style="background: var(--neutral-50); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
-                    <h2 style="color: var(--primary-600); margin-bottom: 1rem;">Biz Kimiz?</h2>
-                    <p>Twistigo, Türkiye'nin en güvenilir ve hızlı büyüyen e-ticaret platformudur. 2020 yılından beri milyonlarca müşteriye hizmet vermekteyiz.</p>
+<!-- NAV -->
+<nav class="nav-bar">
+    <div class="nav-inner" id="nav-menu"></div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home-page" class="page active">
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-inner">
+            <div class="hero-text">
+                <div class="hero-eyebrow">
+                    <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="currentColor"/></svg>
+                    Türkiye'nin #1 Platformu
                 </div>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                    <div style="background: var(--neutral-50); padding: 2rem; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🛡️</div>
-                        <h3>Güvenli Alışveriş</h3>
-                        <p style="font-size: 0.95rem;">256-bit SSL şifreleme ile güvenli ödeme</p>
-                    </div>
-                    <div style="background: var(--neutral-50); padding: 2rem; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📦</div>
-                        <h3>Hızlı Kargo</h3>
-                        <p style="font-size: 0.95rem;">1-2 gün içinde tüm Türkiye'ye kargo</p>
-                    </div>
-                    <div style="background: var(--neutral-50); padding: 2rem; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">💳</div>
-                        <h3>Kolay Ödeme</h3>
-                        <p style="font-size: 0.95rem;">Kredi kartı, banka havalesi ve daha fazlası</p>
-                    </div>
-                    <div style="background: var(--neutral-50); padding: 2rem; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">↩️</div>
-                        <h3>Geri İade</h3>
-                        <p style="font-size: 0.95rem;">30 gün içinde hiçbir soru sormadan iade</p>
-                    </div>
-                    <div style="background: var(--neutral-50); padding: 2rem; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">💬</div>
-                        <h3>24/7 Destek</h3>
-                        <p style="font-size: 0.95rem;">Sorularınıza hızlı cevap veren ekip</p>
-                    </div>
-                    <div style="background: var(--neutral-50); padding: 2rem; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">⭐</div>
-                        <h3>Kalite Garantisi</h3>
-                        <p style="font-size: 0.95rem;">Tüm ürünler kalite kontrolünden geçer</p>
-                    </div>
+                <h1 class="hero-title">
+                    En İyi Fiyat,<br>
+                    <span>En Güvenilir</span><br>
+                    Alışveriş
+                </h1>
+                <p class="hero-sub">60'tan fazla kategoride binlerce ürün. Hızlı kargo, güvenli ödeme ve 30 gün iade garantisi.</p>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="document.getElementById('product-grid').scrollIntoView({behavior:'smooth'})">
+                        Alışverişe Başla
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                    <button class="btn-ghost" onclick="showPage('about')">Hakkımızda</button>
                 </div>
-
-                <div style="background: var(--neutral-50); padding: 2rem; border-radius: 12px;">
-                    <h2 style="color: var(--primary-600); margin-bottom: 2rem;">İstatistikler</h2>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
-                        <div style="text-align: center;">
-                            <div style="font-size: 2rem; font-weight: 700; color: var(--primary-600);">1M+</div>
-                            <p>Aktif Müşteri</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 2rem; font-weight: 700; color: var(--primary-600);">50K+</div>
-                            <p>Satıcı</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 2rem; font-weight: 700; color: var(--primary-600);">10M+</div>
-                            <p>Ürün Çeşidi</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 2rem; font-weight: 700; color: var(--primary-600);">99%</div>
-                            <p>Memnuniyet Oranı</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- CONTACT PAGE -->
-    <div id="contact-page" class="page">
-        <div class="container-main">
-            <div style="padding: 4rem 0;">
-                <h1 style="margin-bottom: 0.5rem;">İletişim</h1>
-                <p style="font-size: 1.1rem; margin-bottom: 3rem;">Sorularınız ve önerileriniz için bize ulaşın</p>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
-                    <form onsubmit="sendMessage(event)" style="background: var(--neutral-50); padding: 2rem; border-radius: 12px;">
-                        <h3 style="margin-bottom: 1.5rem;">Bize Mesaj Gönderin</h3>
-                        <div style="margin-bottom: 1.5rem;">
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Adınız</label>
-                            <input type="text" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--neutral-300); border-radius: 8px; background: white;">
-                        </div>
-                        <div style="margin-bottom: 1.5rem;">
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">E-mail</label>
-                            <input type="email" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--neutral-300); border-radius: 8px; background: white;">
-                        </div>
-                        <div style="margin-bottom: 1.5rem;">
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Konu</label>
-                            <input type="text" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--neutral-300); border-radius: 8px; background: white;">
-                        </div>
-                        <div style="margin-bottom: 1.5rem;">
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Mesajınız</label>
-                            <textarea required rows="6" style="width: 100%; padding: 0.75rem; border: 1px solid var(--neutral-300); border-radius: 8px; background: white; font-family: inherit;"></textarea>
-                        </div>
-                        <button type="submit" style="width: 100%; padding: 0.875rem; background: var(--gradient-primary); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">Gönder</button>
-                    </form>
-
+                <div class="hero-stats">
                     <div>
-                        <div style="background: var(--neutral-50); padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
-                            <h3 style="color: var(--primary-600); margin-bottom: 1rem;">📞 Telefon</h3>
-                            <p>Müşteri Hizmetleri: 0850 XXX XX XX<br>Pazarlama: +90 212 XXX XX XX</p>
-                        </div>
-
-                        <div style="background: var(--neutral-50); padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
-                            <h3 style="color: var(--primary-600); margin-bottom: 1rem;">📧 E-mail</h3>
-                            <p>Destek: support@twistigo.com<br>İletişim: info@twistigo.com</p>
-                        </div>
-
-                        <div style="background: var(--neutral-50); padding: 2rem; border-radius: 12px;">
-                            <h3 style="color: var(--primary-600); margin-bottom: 1rem;">🕐 Çalışma Saatleri</h3>
-                            <p>Pazartesi - Cuma: 08:00 - 18:00<br>Cumartesi: 09:00 - 14:00<br>Pazar: Kapalı</p>
-                        </div>
+                        <div class="stat-val">1M+</div>
+                        <div class="stat-label">Aktif Müşteri</div>
+                    </div>
+                    <div>
+                        <div class="stat-val">50K+</div>
+                        <div class="stat-label">Satıcı</div>
+                    </div>
+                    <div>
+                        <div class="stat-val">10M+</div>
+                        <div class="stat-label">Ürün Çeşidi</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- PRODUCT MODAL -->
-    <div id="product-modal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
-            <div id="modal-body"></div>
-        </div>
-    </div>
-
-    <!-- CART SIDEBAR -->
-    <aside class="cart-sidebar" id="cart-sidebar">
-        <div class="cart-header">
-            <h3>Sepetim</h3>
-            <button class="icon-button" onclick="toggleCart()">&times;</button>
-        </div>
-        <div class="cart-items" id="cart-items"></div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Toplam:</span>
-                <span id="cart-total">0 TL</span>
-            </div>
-            <button class="checkout-btn" id="checkout-btn" onclick="checkout()" disabled>ÖDEMEYE GEÇ</button>
-        </div>
-    </aside>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Hakkında</h4>
-                <a href="#" onclick="showPage('about')">Biz Kimiz?</a>
-                <a href="#">Kariyer</a>
-                <a href="#">Basın</a>
-            </div>
-            <div class="footer-section">
-                <h4>Müşteri Destek</h4>
-                <a href="#" onclick="showPage('contact')">İletişim</a>
-                <a href="#">SSS</a>
-                <a href="#">Gizlilik Politikası</a>
-            </div>
-            <div class="footer-section">
-                <h4>Sosyal Medya</h4>
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-            </div>
-            <div class="footer-section">
-                <h4>İndirilebilir</h4>
-                <a href="#">iOS Uygulaması</a>
-                <a href="#">Android Uygulaması</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Twistigo. Tüm hakları saklıdır.</p>
-        </div>
-    </footer>
-
-    <script>
-        // PRODUCTS DATABASE - UÇUK FİYATLAR (YARIM FİYATA İNDİRİMLİ)
-        const products = [
-            // MODA
-            { id: 1, name: "Premium Denim Ceket", category: "Moda", price: 6495, oldPrice: 12990, rating: 4.8, sales: 1250, image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=500", seller: "Style Hub", isNew: true, discount: 50, reviews: [{ user: "Ahmet", rating: 5, text: "Çok iyi kalite!" }] },
-            { id: 2, name: "Spor Ayakkabı Elite", category: "Moda", price: 4495, oldPrice: 8990, rating: 4.7, sales: 2100, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=500", seller: "Sport Zone", discount: 50, reviews: [{ user: "Zeynep", rating: 5, text: "Çok rahat!" }] },
-            { id: 3, name: "Vintage T-Shirt Premium", category: "Moda", price: 1745, oldPrice: 3490, rating: 4.5, sales: 890, image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=500", seller: "Retro Store", discount: 50, reviews: [{ user: "Mert", rating: 4, text: "İyi fiyat" }] },
-            { id: 4, name: "Elegance Elbise Lüks", category: "Moda", price: 7995, oldPrice: 15990, rating: 4.9, sales: 650, image:"https://www.davetcokelbisemyok.com/media/catalog/product/cache/401798936e1f39ab34bbb19329bd4ca1/e/l/elegance_elbise_fjkfnjfnjf.jpg", seller: "Fashion Pro", isNew: true, discount: 50, reviews: [{ user: "Ceyda", rating: 5, text: "Mükemmel!" }] },
-            { id: 5, name: "Casual Blazer İtalyan", category: "Moda", price: 7245, oldPrice: 14490, rating: 4.6, sales: 520, image: "https://static.ticimax.cloud/cdn-cgi/image/width=0,quality=0/31663/uploads/urunresimleri/buyuk/italyan-stil-slim-fit-mono-yaka-keten---36b1-.jpg", seller: "Office Fashion", discount: 50, reviews: [{ user: "Serap", rating: 4, text: "Harika!" }] },
-            { id: 6, name: "Slim Denim Tasarımcı", category: "Moda", price: 3245, oldPrice: 6490, rating: 4.4, sales: 1450, image: "https://image.made-in-china.com/202f0j00PoKcSNkCejbn/Applique-Embroidery-Design-Jeans-High-Stretch-Skinny-Light-Blue-Distressed-Denim-Jeans.webp", seller: "Denim King", discount: 50, reviews: [{ user: "Emre", rating: 4, text: "Tam oturdu" }] },
-            { id: 7, name: "Kış Ceketi Premium", category: "Moda", price: 9495, oldPrice: 18990, rating: 4.8, sales: 780, image: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQXUm0b3c6uU4Gn07cJZAaDVb3TDhyx_fe45fuG7LqINs9_2g9Mn5FgzKqkrkEKoREzAiYjc_gcd2oYVN8wtA28gNl2AqAB-RnSs6CPsWLfmwMAljgfhKB1tg", seller: "Winter", discount: 50, reviews: [{ user: "Fatma", rating: 5, text: "Çok sıcak!" }] },
-            { id: 8, name: "Oversized Sweatshirt Lüks", category: "Moda", price: 2245, oldPrice: 4490, rating: 4.3, sales: 1890, image: "https://floimages.mncdn.com/media/catalog/product/24-06/12/201244538-1-1718177346.jpg", seller: "Casual", isNew: true, discount: 50, reviews: [{ user: "Barış", rating: 4, text: "Rahat!" }] },
-
-            // ELEKTRONİK
-            { id: 9, name: "Akıllı Saat Titanium", category: "Elektronik", price: 17495, oldPrice: 34990, rating: 4.9, sales: 3200, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=500", seller: "Tech", isNew: true, discount: 50, reviews: [{ user: "Deniz", rating: 5, text: "Müthiş!" }] },
-            { id: 10, name: "Wireless Kulaklık Profesyonel", category: "Elektronik", price: 6495, oldPrice: 12990, rating: 4.7, sales: 2890, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=500", seller: "Audio", discount: 50, reviews: [{ user: "Kadir", rating: 5, text: "Ses harika!" }] },
-            { id: 11, name: "Powerbank 50000mAh Ultra", category: "Elektronik", price: 3245, oldPrice: 6490, rating: 4.6, sales: 4100, image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?auto=format&fit=crop&q=80&w=500", seller: "Power", discount: 50, reviews: [{ user: "Alp", rating: 4, text: "Güzel!" }] },
-            { id: 12, name: "USB-C Kablo Pro Premium", category: "Elektronik", price: 995, oldPrice: 1990, rating: 4.5, sales: 5600, image: "https://m.media-amazon.com/images/I/81z+LWWcG6L.jpg", seller: "Cable", discount: 50, reviews: [{ user: "Hasan", rating: 5, text: "İyi!" }] },
-            { id: 13, name: "Gaming Mouse RGB Profesyonel", category: "Elektronik", price: 4495, oldPrice: 8990, rating: 4.8, sales: 1890, image: "https://ideacdn.net/idea/fp/51/myassets/products/558/gb-m11b-main.jpg?revision=1733404030", seller: "Gamer", isNew: true, discount: 50, reviews: [{ user: "Furkan", rating: 5, text: "Perfect!" }] },
-            { id: 14, name: "Mechanical Keyboard Gaming Elite", category: "Elektronik", price: 7995, oldPrice: 15990, rating: 4.7, sales: 1250, image: "https://m.media-amazon.com/images/I/816GjIFH89L._AC_UF894,1000_QL80_.jpg", seller: "Gaming", discount: 50, reviews: [{ user: "Cem", rating: 5, text: "Harika!" }] },
-            { id: 15, name: "Webcam 4K Pro Studio", category: "Elektronik", price: 10995, oldPrice: 21990, rating: 4.6, sales: 890, image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT5x9bDFFnqc2rnleoFBqMZv77UusvX-eFW9F5AsJyO4b8irkuz5B9M__IXo3ySL-9a0Msp4N-z1k3f__GKkG8jIvjSjDPq-XtZ3Pnn2gWblOe_WrpHzriVOiY", seller: "Video", discount: 50, reviews: [{ user: "Gözde", rating: 4, text: "Güzel!" }] },
-            { id: 16, name: "Smart Ampul WiFi Premium", category: "Elektronik", price: 745, oldPrice: 1490, rating: 4.4, sales: 2100, image: "https://aydinlatmaconcept.com/cdn/shop/files/smart-rgb-led-ampul-wifi-aydinlatma-concept-1.jpg?v=1773783290", seller: "Smart", isNew: true, discount: 50, reviews: [{ user: "Işıl", rating: 4, text: "Kolay!" }] },
-
-            // AKSESUAR
-            { id: 17, name: "Kol Saati Lüks İsviçre", category: "Aksesuar", price: 9495, oldPrice: 18990, rating: 4.9, sales: 1240, image: "https://blog.ciceksepeti.com/wp-content/uploads/2022/09/isvicre-saat-markalari-650x433.jpeg.webp", seller: "Watch", discount: 50, reviews: [{ user: "İbrahim", rating: 5, text: "Harika!" }] },
-            { id: 18, name: "Güneş Gözlüğü Tasarımcı", category: "Aksesuar", price: 2495, oldPrice: 4990, rating: 4.7, sales: 2340, image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&q=80&w=500", seller: "Eyewear", discount: 50, reviews: [{ user: "Hazal", rating: 5, text: "Güzel!" }] },
-            { id: 19, name: "Deri Çanta İtalyan Deri", category: "Aksesuar", price: 6495, oldPrice: 12990, rating: 4.8, sales: 890, image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=500", seller: "Leather", isNew: true, discount: 50, reviews: [{ user: "Ayşe", rating: 5, text: "Zarif!" }] },
-            { id: 20, name: "Beyzbol Şapkası", category: "Aksesuar", price: 1495, oldPrice: 2990, rating: 4.5, sales: 1560, image: "https://m.media-amazon.com/images/I/4121fJOJEFL._AC_SY350_.jpg", seller: "Caps", discount: 50, reviews: [{ user: "Rıza", rating: 4, text: "İyi!" }] },
-
-            // CİLT BAKIMI
-            { id: 21, name: "C Vitamini Serum Profesyonel", category: "Cilt Bakımı", price: 2245, oldPrice: 4490, rating: 4.9, sales: 3200, image: "https://cdn.myikas.com/images/09653a97-9eee-4f28-ba30-67d7bb6e5b9c/6e33ba3b-3e75-4337-83e7-d4036ce933cb/3840/156.webp", seller: "Beauty", discount: 50, reviews: [{ user: "Leyla", rating: 5, text: "Müthiş!" }] },
-            { id: 22, name: "Krem Nemlendiricisi Lüks", category: "Cilt Bakımı", price: 1495, oldPrice: 2990, rating: 4.7, sales: 2800, image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&q=80&w=500", seller: "Dermo", discount: 50, reviews: [{ user: "Merve", rating: 5, text: "İyi!" }] },
-            { id: 23, name: "Misellar Su Premium", category: "Cilt Bakımı", price: 895, oldPrice: 1790, rating: 4.6, sales: 4100, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThscSRJBUHbJnuXrxbi5_MPYS9GLuCDFpi7w&s", seller: "Skin", discount: 50, reviews: [{ user: "Sinem", rating: 4, text: "Etkili!" }] },
-            { id: 24, name: "Retinol Kremi Gece Profesyonel", category: "Cilt Bakımı", price: 2995, oldPrice: 5990, rating: 4.8, sales: 1560, image: "https://cdn.dsmcdn.com/mnresize/420/620/ty1594/prod/QC/20241026/19/933e9133-b126-303e-8d36-a79ff4b2d1da/1_org_zoom.jpg", seller: "Advanced", isNew: true, discount: 50, reviews: [{ user: "Hande", rating: 5, text: "Harika!" }] },
-            { id: 25, name: "Güneş Kremi SPF100 Ultra", category: "Cilt Bakımı", price: 1745, oldPrice: 3490, rating: 4.7, sales: 2340, image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&q=80&w=500", seller: "Sun", discount: 50, reviews: [{ user: "Pınar", rating: 5, text: "Hafif!" }] },
-
-            // FORMA
-            { id: 26, name: "Fenerbahçe Forması Orijinal", category: "Forma", price: 3245, oldPrice: 6490, rating: 5.0, sales: 4500, image: "https://assets.adidas.com/images/w_600,f_auto,q_auto/9ad440971dda405cb0122665357d7b81_9366/FENERBAHCE_UCUNCU_FORMA_COCUK_Mavi_KD9739_01_laydown.jpg", seller: "Fenerium", discount: 50, reviews: [{ user: "Şener", rating: 5, text: "Resmi!" }] },
-            { id: 27, name: "Galatasaray Forması Orijinal", category: "Forma", price: 3245, oldPrice: 6490, rating: 5.0, sales: 4200, image: "https://productimages.hepsiburada.net/s/777/375-375/110001305353878.jpg", seller: "GS Store", discount: 50, reviews: [{ user: "Ali", rating: 5, text: "Harika!" }] },
-            { id: 28, name: "Beşiktaş Forması Orijinal", category: "Forma", price: 3245, oldPrice: 6490, rating: 4.9, sales: 3800, image: "https://9b6e8d-barcin.akinoncloudcdn.com/products/2024/07/23/1904859/eb29495e-2d43-4abc-91ea-9a0239ca1863.jpg", seller: "Besiktas", discount: 50, reviews: [{ user: "Mehmet", rating: 5, text: "Güzel!" }] },
-            { id: 29, name: "Trabzonspor Forması Orijinal", category: "Forma", price: 2995, oldPrice: 5990, rating: 4.8, sales: 2100, image: "https://static.ticimax.cloud/70264/uploads/urunresimleri/buyuk/joma-2526-cubuklu-forma-cocuk-c3609-.png", seller: "TS", discount: 50, reviews: [{ user: "Rüştü", rating: 5, text: "Rahat!" }] },
-            { id: 30, name: "Milli Takım Forması Orijinal", category: "Forma", price: 2745, oldPrice: 5490, rating: 5.0, sales: 3200, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNNSGV-qcBY5-Zax6i2YqyzA7_t9plM6e2ow&s", seller: "TFF", discount: 50, reviews: [{ user: "Özcan", rating: 5, text: "Gurur!" }] }
-        ];
-
-        let cart = [];
-        let favorites = [];
-        let filteredProducts = [...products];
-        let currentPage = 1;
-        const itemsPerPage = 12;
-        let selectedCategory = null;
-
-        function init() {
-            renderNav();
-            applyFilters();
-            loadFromLocalStorage();
-            updateUI();
-        }
-
-        function renderNav() {
-            const categories = ['Tümü', ...new Set(products.map(p => p.category))];
-            const nav = document.getElementById('nav-menu');
-            nav.innerHTML = categories.map(cat => `
-                <button class="nav-button ${cat === 'Tümü' ? 'active' : ''}" onclick="filterByCategory('${cat}')">${cat}</button>
-            `).join('');
-
-            const filters = document.getElementById('category-filters');
-            filters.innerHTML = categories.slice(1).map(cat => `
-                <div class="filter-option">
-                    <input type="checkbox" class="category-filter" value="${cat}" onchange="applyFilters()">
-                    <label>${cat}</label>
+            <div class="hero-card-stack">
+                <div class="hero-card">
+                    <img class="hero-card-img" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=120" alt="">
+                    <div>
+                        <div class="hero-card-name">Akıllı Saat Titanium</div>
+                        <div class="hero-card-price">17.495 TL</div>
+                    </div>
+                    <div class="hero-card-badge">-50%</div>
                 </div>
-            `).join('');
-        }
+                <div class="hero-card">
+                    <img class="hero-card-img" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=120" alt="">
+                    <div>
+                        <div class="hero-card-name">Spor Ayakkabı Elite</div>
+                        <div class="hero-card-price">4.495 TL</div>
+                    </div>
+                    <div class="hero-card-badge">-50%</div>
+                </div>
+                <div class="hero-card">
+                    <img class="hero-card-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=120" alt="">
+                    <div>
+                        <div class="hero-card-name">Deri Çanta İtalyan</div>
+                        <div class="hero-card-price">6.495 TL</div>
+                    </div>
+                    <div class="hero-card-badge">YENİ</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function filterByCategory(category) {
-            document.querySelectorAll('.nav-button').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Checkbox'ları sıfırla
-            document.querySelectorAll('.category-filter').forEach(c => c.checked = false);
-            
-            if(category === 'Tümü') {
-                selectedCategory = null;
-            } else {
-                selectedCategory = category;
-            }
-            
-            currentPage = 1;
-            applyFilters();
-        }
+    <!-- PRODUCTS -->
+    <div class="main-wrap">
+        <aside class="sidebar">
+            <div class="filter-card">
+                <div class="filter-card-header">
+                    <span class="filter-card-title">Filtrele</span>
+                    <button class="filter-clear" onclick="clearAllFilters()">Temizle</button>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-section-label" onclick="toggleSection(this)">
+                        Kategori
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="filter-opts" id="category-filters"></div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-section-label" onclick="toggleSection(this)">
+                        Fiyat Aralığı
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="filter-opts">
+                        <label class="filter-opt"><input type="radio" name="price-filter" value="0-5000" onchange="applyFilters()"><label>0 – 5.000 TL</label></label>
+                        <label class="filter-opt"><input type="radio" name="price-filter" value="5000-15000" onchange="applyFilters()"><label>5.000 – 15.000 TL</label></label>
+                        <label class="filter-opt"><input type="radio" name="price-filter" value="15000-50000" onchange="applyFilters()"><label>15.000 – 50.000 TL</label></label>
+                        <label class="filter-opt"><input type="radio" name="price-filter" value="50000" onchange="applyFilters()"><label>50.000+ TL</label></label>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-section-label" onclick="toggleSection(this)">
+                        Değerlendirme
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="filter-opts">
+                        <label class="filter-opt"><input type="checkbox" class="rating-filter" value="5" onchange="applyFilters()"><label>⭐⭐⭐⭐⭐ 5 Yıldız</label></label>
+                        <label class="filter-opt"><input type="checkbox" class="rating-filter" value="4" onchange="applyFilters()"><label>⭐⭐⭐⭐ 4+ Yıldız</label></label>
+                        <label class="filter-opt"><input type="checkbox" class="rating-filter" value="3" onchange="applyFilters()"><label>⭐⭐⭐ 3+ Yıldız</label></label>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-section-label" onclick="toggleSection(this)">
+                        Kampanya
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="filter-opts">
+                        <label class="filter-opt"><input type="checkbox" id="discount-filter" onchange="applyFilters()"><label for="discount-filter">İndirimdeki Ürünler</label></label>
+                        <label class="filter-opt"><input type="checkbox" id="new-filter" onchange="applyFilters()"><label for="new-filter">Yeni Ürünler</label></label>
+                    </div>
+                </div>
+            </div>
+        </aside>
 
-        function applyFilters() {
-            filteredProducts = products.filter(p => {
-                // Kategori filtresi - nav buttonundan
-                if(selectedCategory && p.category !== selectedCategory) {
-                    return false;
-                }
-                
-                // Kategori filtresi - sidebar checkboxlarından
-                const selectedCategories = Array.from(document.querySelectorAll('.category-filter:checked')).map(c => c.value);
-                if(selectedCategories.length > 0 && !selectedCategories.includes(p.category)) {
-                    return false;
-                }
+        <div class="products-area">
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <span class="results-count" id="results-text">Yükleniyor…</span>
+                </div>
+                <select class="sort-select" id="sort-select" onchange="applySort()">
+                    <option value="newest">En Yeni</option>
+                    <option value="price-asc">Fiyat: Düşük → Yüksek</option>
+                    <option value="price-desc">Fiyat: Yüksek → Düşük</option>
+                    <option value="rating">En Yüksek Puan</option>
+                    <option value="sales">En Çok Satılan</option>
+                </select>
+            </div>
+            <div class="product-grid" id="product-grid"></div>
+            <div class="pagination" id="pagination"></div>
+        </div>
+    </div>
+</div>
 
-                // Fiyat filtresi
-                const priceFilter = document.querySelector('input[name="price-filter"]:checked')?.value;
-                if(priceFilter) {
-                    if(priceFilter === '0-5000' && p.price > 5000) return false;
-                    if(priceFilter === '5000-15000' && (p.price < 5000 || p.price > 15000)) return false;
-                    if(priceFilter === '15000-50000' && (p.price < 15000 || p.price > 50000)) return false;
-                    if(priceFilter === '50000' && p.price < 50000) return false;
-                }
+<!-- ABOUT PAGE -->
+<div id="about-page" class="page">
+    <div class="about-wrap">
+        <h1 class="about-hero-title">Türkiye'nin en <span>güvenilir</span><br>alışveriş platformu</h1>
+        <p class="about-sub">2020'den beri milyonlarca müşteriye hizmet veriyoruz. Kalite, hız ve güven bizi farklı kılıyor.</p>
+        <div class="about-grid">
+            <div class="about-card"><div class="about-card-icon">🛡️</div><div class="about-card-title">Güvenli Alışveriş</div><div class="about-card-text">256-bit SSL şifreleme ile güvenli ödeme altyapısı.</div></div>
+            <div class="about-card"><div class="about-card-icon">📦</div><div class="about-card-title">Hızlı Kargo</div><div class="about-card-text">1–2 gün içinde tüm Türkiye'ye ücretsiz kargo.</div></div>
+            <div class="about-card"><div class="about-card-icon">💳</div><div class="about-card-title">Kolay Ödeme</div><div class="about-card-text">Kredi kartı, havale ve 12 taksit seçeneği.</div></div>
+            <div class="about-card"><div class="about-card-icon">↩️</div><div class="about-card-title">30 Gün İade</div><div class="about-card-text">Hiçbir soru sormadan koşulsuz iade garantisi.</div></div>
+            <div class="about-card"><div class="about-card-icon">💬</div><div class="about-card-title">7/24 Destek</div><div class="about-card-text">Canlı destek ekibimiz her zaman yanınızda.</div></div>
+            <div class="about-card"><div class="about-card-icon">⭐</div><div class="about-card-title">Kalite Garantisi</div><div class="about-card-text">Tüm ürünler kalite kontrolünden geçmektedir.</div></div>
+        </div>
+        <div class="stats-row">
+            <div class="stat-item"><div class="stat-big">1M+</div><div class="stat-small">Aktif Müşteri</div></div>
+            <div class="stat-item"><div class="stat-big">50K+</div><div class="stat-small">Kayıtlı Satıcı</div></div>
+            <div class="stat-item"><div class="stat-big">10M+</div><div class="stat-small">Ürün Çeşidi</div></div>
+            <div class="stat-item"><div class="stat-big">99%</div><div class="stat-small">Memnuniyet</div></div>
+        </div>
+    </div>
+</div>
 
-                // Rating filtresi
-                const selectedRatings = Array.from(document.querySelectorAll('.rating-filter:checked')).map(c => parseInt(c.value));
-                if(selectedRatings.length > 0 && !selectedRatings.some(r => p.rating >= r)) return false;
+<!-- CONTACT PAGE -->
+<div id="contact-page" class="page">
+    <div class="contact-wrap">
+        <h1 class="contact-title">İletişim</h1>
+        <p class="contact-sub">Sorularınız ve önerileriniz için bize ulaşın.</p>
+        <div class="contact-grid">
+            <div class="contact-form">
+                <h3>Mesaj Gönderin</h3>
+                <form onsubmit="sendMessage(event)">
+                    <div class="form-group"><label>Adınız</label><input type="text" required placeholder="Adınızı girin"></div>
+                    <div class="form-group"><label>E-posta</label><input type="email" required placeholder="email@örnek.com"></div>
+                    <div class="form-group"><label>Konu</label><input type="text" required placeholder="Konuyu belirtin"></div>
+                    <div class="form-group"><label>Mesajınız</label><textarea required placeholder="Mesajınızı buraya yazın…"></textarea></div>
+                    <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">Gönder</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <div class="info-card"><div class="info-card-head">📞 Telefon</div><p>Müşteri Hizmetleri: 0850 XXX XX XX<br>Pazarlama: +90 212 XXX XX XX</p></div>
+                <div class="info-card"><div class="info-card-head">📧 E-posta</div><p>Destek: support@twistigo.com<br>İletişim: info@twistigo.com</p></div>
+                <div class="info-card"><div class="info-card-head">🕐 Çalışma Saatleri</div><p>Pzt – Cuma: 08:00 – 18:00<br>Cumartesi: 09:00 – 14:00<br>Pazar: Kapalı</p></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                // İndirim filtresi
-                const discountFilter = document.getElementById('discount-filter');
-                if(discountFilter && discountFilter.checked && !p.discount) return false;
+<!-- PRODUCT MODAL -->
+<div id="product-modal" class="modal-overlay">
+    <div class="modal-box">
+        <button class="modal-close-btn" onclick="closeModal()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+        <div id="modal-body"></div>
+    </div>
+</div>
 
-                // Yeni ürün filtresi
-                const newFilter = document.getElementById('new-filter');
-                if(newFilter && newFilter.checked && !p.isNew) return false;
+<!-- ══════════════════════════════════════════════ -->
+<!-- AUTH MODAL (GİRİŞ / KAYIT)                   -->
+<!-- ══════════════════════════════════════════════ -->
+<div id="auth-overlay" class="auth-overlay">
+    <div class="auth-box">
+        <div class="auth-top-bar"></div>
 
-                return true;
-            });
+        <div class="auth-header">
+            <div class="auth-logo-wrap">
+                Twistigo<span class="logo-dot" style="width:8px;height:8px;"></span>
+            </div>
+            <button class="auth-close" onclick="closeAuth()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
 
-            currentPage = 1;
-            renderProducts();
-        }
+        <!-- Sekmeler -->
+        <div class="auth-tabs">
+            <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Giriş Yap</button>
+            <button class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Kayıt Ol</button>
+        </div>
 
-        function applySort() {
-            const sort = document.getElementById('sort-select').value;
-            switch(sort) {
-                case 'price-asc': filteredProducts.sort((a,b) => a.price - b.price); break;
-                case 'price-desc': filteredProducts.sort((a,b) => b.price - a.price); break;
-                case 'rating': filteredProducts.sort((a,b) => b.rating - a.rating); break;
-                case 'sales': filteredProducts.sort((a,b) => b.sales - a.sales); break;
-            }
-            currentPage = 1;
-            renderProducts();
-        }
+        <div class="auth-form-wrap">
 
-        function renderProducts() {
-            const start = (currentPage - 1) * itemsPerPage;
-            const pageItems = filteredProducts.slice(start, start + itemsPerPage);
-            const grid = document.getElementById('product-grid');
+            <!-- ── GİRİŞ PANELI ── -->
+            <div class="auth-panel active" id="panel-login">
+                <div class="auth-welcome">Tekrar hoşgeldiniz 👋</div>
+                <div class="auth-sub">Hesabınıza giriş yapın</div>
 
-            if(pageItems.length === 0) {
-                grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--text-secondary);">😢 Aradığınız şartlara uygun ürün bulunamadı</div>';
-                document.getElementById('results-text').textContent = 'Sonuç yok';
-                document.getElementById('pagination').innerHTML = '';
-                return;
-            }
+                <div class="auth-field">
+                    <label>E-posta Adresi</label>
+                    <div class="auth-input-wrap">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <input class="auth-input" type="email" id="login-email" placeholder="email@örnek.com" autocomplete="email">
+                    </div>
+                    <div class="auth-error-msg" id="login-email-err">Geçerli bir e-posta girin</div>
+                </div>
 
-            grid.innerHTML = pageItems.map(p => `
-                <div class="product-card">
-                    <div class="product-image-wrapper">
-                        <img src="${p.image}" class="product-image" onclick="openModal(${p.id})">
-                        ${p.isNew ? '<span class="product-badge badge-new">YENİ</span>' : ''}
-                        ${p.discount ? `<span class="product-badge badge-sale">-${p.discount}%</span>` : ''}
-                        <button class="favorite-button ${favorites.includes(p.id) ? 'liked' : ''}" onclick="toggleFavorite(${p.id}, event)">
-                            ${favorites.includes(p.id) ? '❤️' : '🤍'}
+                <div class="auth-field">
+                    <label>
+                        Şifre
+                        <button class="forgot-link" type="button" onclick="forgotPassword()">Şifremi unuttum</button>
+                    </label>
+                    <div class="auth-input-wrap">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input class="auth-input" type="password" id="login-pass" placeholder="Şifrenizi girin" autocomplete="current-password">
+                        <button class="toggle-pass" type="button" onclick="togglePassVisibility('login-pass', this)">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                         </button>
                     </div>
-                    <div class="product-content">
-                        <span class="product-category">${p.category}</span>
-                        <h3 class="product-name" onclick="openModal(${p.id})">${p.name}</h3>
-                        <div class="product-rating">⭐ ${p.rating} (${p.sales})</div>
-                        <div class="product-pricing">
-                            <span class="product-price">${p.price.toLocaleString('tr-TR')} TL</span>
-                            <span class="product-old-price">${p.oldPrice.toLocaleString('tr-TR')} TL</span>
-                        </div>
-                        <button class="add-to-cart-btn" onclick="addToCart(${p.id})">Sepete Ekle</button>
+                    <div class="auth-error-msg" id="login-pass-err">E-posta veya şifre hatalı</div>
+                </div>
+
+                <button class="auth-submit" id="login-btn" onclick="doLogin()">Giriş Yap →</button>
+
+                <div class="auth-divider">veya</div>
+
+                <button class="social-btn" onclick="showToast('🔗 Google ile giriş yakında!')">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    Google ile devam et
+                </button>
+
+                <div class="auth-switch">
+                    Hesabınız yok mu?
+                    <button class="auth-switch-link" onclick="switchAuthTab('register')">Hemen kayıt ol</button>
+                </div>
+            </div>
+
+            <!-- ── KAYIT PANELI ── -->
+            <div class="auth-panel" id="panel-register">
+                <div class="auth-welcome">Aramıza katılın! 🎉</div>
+                <div class="auth-sub">Ücretsiz hesabınızı oluşturun</div>
+
+                <div class="auth-field">
+                    <label>Ad Soyad</label>
+                    <div class="auth-input-wrap">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <input class="auth-input" type="text" id="reg-name" placeholder="Adınız Soyadınız" autocomplete="name">
                     </div>
+                    <div class="auth-error-msg" id="reg-name-err">Ad soyad en az 3 karakter olmalı</div>
                 </div>
-            `).join('');
 
-            document.getElementById('results-text').textContent = `${filteredProducts.length} ürün bulundu`;
-            renderPagination();
-        }
-
-        function renderPagination() {
-            const total = Math.ceil(filteredProducts.length / itemsPerPage);
-            let html = '';
-            if(currentPage > 1) html += `<button class="page-button" onclick="goToPage(${currentPage-1})">← Önceki</button>`;
-            for(let i = 1; i <= total; i++) {
-                html += `<button class="page-button ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
-            }
-            if(currentPage < total) html += `<button class="page-button" onclick="goToPage(${currentPage+1})">Sonraki →</button>`;
-            document.getElementById('pagination').innerHTML = html;
-        }
-
-        function goToPage(p) {
-            currentPage = p;
-            renderProducts();
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-
-        function openModal(id) {
-            const p = products.find(pr => pr.id === id);
-            const modal = document.getElementById('product-modal');
-            document.getElementById('modal-body').innerHTML = `
-                <img src="${p.image}" class="modal-image">
-                <h1 class="modal-title">${p.name}</h1>
-                <p class="modal-seller">Satıcı: <strong>${p.seller}</strong></p>
-                <div class="modal-badges">
-                    <div class="modal-badge">⭐ ${p.rating}/5</div>
-                    <div class="modal-badge">📦 ${p.sales} satış</div>
-                    ${p.discount ? `<div class="modal-badge">-${p.discount}% İndirim</div>` : ''}
-                </div>
-                <div class="modal-pricing">
-                    <div style="display: flex; gap: 1rem; margin-bottom: 0.5rem;">
-                        <span style="font-size: 2rem; font-weight: 700; color: var(--primary-600);">${p.price.toLocaleString('tr-TR')} TL</span>
-                        <span style="text-decoration: line-through; color: var(--neutral-500);">${p.oldPrice.toLocaleString('tr-TR')} TL</span>
+                <div class="auth-field">
+                    <label>E-posta Adresi</label>
+                    <div class="auth-input-wrap">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <input class="auth-input" type="email" id="reg-email" placeholder="email@örnek.com" autocomplete="email">
                     </div>
-                    <div style="font-size: 0.9rem; color: var(--primary-600);">💰 ${(p.oldPrice - p.price).toLocaleString('tr-TR')} TL tasarruf</div>
+                    <div class="auth-error-msg" id="reg-email-err">Bu e-posta zaten kullanılıyor</div>
                 </div>
-                <button class="modal-add-btn" onclick="addToCart(${p.id}); closeModal();">Sepete Ekle</button>
-                <div class="reviews-section">
-                    <h4>📝 Müşteri Yorumları</h4>
-                    ${p.reviews.map(r => `
-                        <div class="review">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                <strong>${r.user}</strong>
-                                <span>${'⭐'.repeat(r.rating)}</span>
-                            </div>
-                            ${r.text}
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-            modal.classList.add('active');
-        }
 
-        function closeModal() {
-            document.getElementById('product-modal').classList.remove('active');
-        }
-
-        function toggleFavorite(id, e) {
-            e.stopPropagation();
-            if(favorites.includes(id)) {
-                favorites = favorites.filter(f => f !== id);
-            } else {
-                favorites.push(id);
-            }
-            updateUI();
-            saveToLocalStorage();
-        }
-
-        function openFavorites() {
-            const fav = products.filter(p => favorites.includes(p.id));
-            alert(`❤️ Favoriler (${favorites.length}):\n${fav.map(p => p.name).join('\n') || 'Boş'}`);
-        }
-
-        function addToCart(id) {
-            const p = products.find(pr => pr.id === id);
-            const existing = cart.find(c => c.id === id);
-            if(existing) existing.qty++;
-            else cart.push({...p, qty: 1});
-            showToast(`✅ "${p.name}" sepete eklendi!`);
-            updateUI();
-            saveToLocalStorage();
-        }
-
-        function removeFromCart(id) {
-            cart = cart.filter(c => c.id !== id);
-            updateUI();
-            saveToLocalStorage();
-        }
-
-        function updateUI() {
-            document.getElementById('cart-badge').textContent = cart.reduce((s,c) => s + c.qty, 0);
-            if(favorites.length > 0) {
-                document.getElementById('favorites-badge').textContent = favorites.length;
-                document.getElementById('favorites-badge').style.display = 'flex';
-            } else {
-                document.getElementById('favorites-badge').style.display = 'none';
-            }
-
-            const cartContainer = document.getElementById('cart-items');
-            if(cart.length === 0) {
-                cartContainer.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🛒</div><p>Sepetiniz boş</p></div>';
-                document.getElementById('checkout-btn').disabled = true;
-            } else {
-                const total = cart.reduce((s,c) => s + c.price * c.qty, 0);
-                cartContainer.innerHTML = cart.map(c => `
-                    <div class="cart-item">
-                        <img src="${c.image}" class="cart-item-image">
-                        <div>
-                            <div class="cart-item-name">${c.name}</div>
-                            <div class="cart-item-price">${c.price.toLocaleString('tr-TR')} TL × ${c.qty}</div>
-                        </div>
-                        <button onclick="removeFromCart(${c.id})" style="border: none; background: none; cursor: pointer; color: var(--danger-600);">🗑️</button>
+                <div class="auth-field">
+                    <label>Şifre</label>
+                    <div class="auth-input-wrap">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input class="auth-input" type="password" id="reg-pass" placeholder="En az 6 karakter" autocomplete="new-password" oninput="checkPassStrength(this.value)">
+                        <button class="toggle-pass" type="button" onclick="togglePassVisibility('reg-pass', this)">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
                     </div>
-                `).join('');
-                document.getElementById('cart-total').textContent = total.toLocaleString('tr-TR') + ' TL';
-                document.getElementById('checkout-btn').disabled = false;
-            }
+                    <div class="pass-strength" id="pass-strength-bars">
+                        <div class="pass-strength-bar" id="psb1"></div>
+                        <div class="pass-strength-bar" id="psb2"></div>
+                        <div class="pass-strength-bar" id="psb3"></div>
+                        <div class="pass-strength-bar" id="psb4"></div>
+                    </div>
+                    <div class="pass-strength-label" id="pass-strength-label"></div>
+                    <div class="auth-error-msg" id="reg-pass-err">Şifre en az 6 karakter olmalı</div>
+                </div>
+
+                <div class="auth-field">
+                    <label>Şifre Tekrar</label>
+                    <div class="auth-input-wrap">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input class="auth-input" type="password" id="reg-pass2" placeholder="Şifrenizi tekrar girin" autocomplete="new-password">
+                        <button class="toggle-pass" type="button" onclick="togglePassVisibility('reg-pass2', this)">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                    <div class="auth-error-msg" id="reg-pass2-err">Şifreler eşleşmiyor</div>
+                </div>
+
+                <div class="auth-checkbox-row">
+                    <input type="checkbox" id="reg-terms">
+                    <label for="reg-terms">
+                        <a href="#" onclick="return false;">Kullanım şartlarını</a> ve
+                        <a href="#" onclick="return false;">Gizlilik politikasını</a> okudum, kabul ediyorum.
+                    </label>
+                </div>
+                <div class="auth-error-msg" id="reg-terms-err" style="margin-top:-0.5rem; margin-bottom:0.75rem;">Şartları kabul etmeniz gerekiyor</div>
+
+                <button class="auth-submit" id="register-btn" onclick="doRegister()">Kayıt Ol →</button>
+
+                <div class="auth-divider">veya</div>
+
+                <button class="social-btn" onclick="showToast('🔗 Google ile kayıt yakında!')">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    Google ile devam et
+                </button>
+
+                <div class="auth-switch">
+                    Zaten hesabınız var mı?
+                    <button class="auth-switch-link" onclick="switchAuthTab('login')">Giriş yapın</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- CART PANEL -->
+<aside class="cart-panel" id="cart-panel">
+    <div class="cart-panel-header">
+        <span class="cart-panel-title">Sepetim</span>
+        <button class="hbtn" onclick="toggleCart()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+    </div>
+    <div class="cart-panel-items" id="cart-items"></div>
+    <div class="cart-panel-footer">
+        <div class="cart-total-row">
+            <span class="cart-total-label">Toplam Tutar</span>
+            <span class="cart-total-amount" id="cart-total">0 TL</span>
+        </div>
+        <button class="checkout-btn" id="checkout-btn" onclick="checkout()" disabled>Ödemeye Geç →</button>
+    </div>
+</aside>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="logo" style="font-size:1.3rem;">Twistigo<span class="logo-dot"></span></div>
+            <p>Türkiye'nin en güvenilir e-ticaret platformu. 2020'den beri hizmetinizdeyiz.</p>
+        </div>
+        <div class="footer-col">
+            <h5>Kurumsal</h5>
+            <a href="#" onclick="showPage('about')">Hakkımızda</a>
+            <a href="#">Kariyer</a>
+            <a href="#">Basın</a>
+        </div>
+        <div class="footer-col">
+            <h5>Destek</h5>
+            <a href="#" onclick="showPage('contact')">İletişim</a>
+            <a href="#">SSS</a>
+            <a href="#">Gizlilik</a>
+        </div>
+        <div class="footer-col">
+            <h5>Uygulama</h5>
+            <a href="#">iOS</a>
+            <a href="#">Android</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Twistigo. Tüm hakları saklıdır.</span>
+        <span>🇹🇷 Türkiye'de üretildi</span>
+    </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<script>
+/* ─────────── ÜRÜN VERİSİ ─────────────────────────────────────── */
+const products = [
+    { id: 1, name: "Premium Denim Ceket", category: "Moda", price: 6495, oldPrice: 12990, rating: 4.8, sales: 1250, image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=500", seller: "Style Hub", isNew: true, discount: 50, reviews: [{ user: "Ahmet", rating: 5, text: "Çok iyi kalite!" }] },
+    { id: 2, name: "Spor Ayakkabı Elite", category: "Moda", price: 4495, oldPrice: 8990, rating: 4.7, sales: 2100, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=500", seller: "Sport Zone", discount: 50, reviews: [{ user: "Zeynep", rating: 5, text: "Çok rahat!" }] },
+    { id: 3, name: "Vintage T-Shirt Premium", category: "Moda", price: 1745, oldPrice: 3490, rating: 4.5, sales: 890, image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=500", seller: "Retro Store", discount: 50, reviews: [{ user: "Mert", rating: 4, text: "İyi fiyat" }] },
+    { id: 4, name: "Elegance Elbise Lüks", category: "Moda", price: 7995, oldPrice: 15990, rating: 4.9, sales: 650, image: "https://cdn.dsmcdn.com/ty1696/prod/QC_ENRICHMENT/20250619/19/5c24adb9-2ba3-32c3-b366-1e95aa35bd54/1_org_zoom.jpg", seller: "Fashion Pro", isNew: true, discount: 50, reviews: [{ user: "Ceyda", rating: 5, text: "Mükemmel!" }] },
+    { id: 5, name: "Casual Blazer İtalyan", category: "Moda", price: 7245, oldPrice: 14490, rating: 4.6, sales: 520, image: "https://static.ticimax.cloud/cdn-cgi/image/width=0,quality=0/31663/uploads/urunresimleri/buyuk/italyan-stil-slim-fit-mono-yaka-keten---36b1-.jpg", seller: "Office Fashion", discount: 50, reviews: [{ user: "Serap", rating: 4, text: "Harika!" }] },
+    { id: 6, name: "Slim Denim Tasarım", category: "Moda", price: 3245, oldPrice: 6490, rating: 4.4, sales: 1450, image: "https://image.made-in-china.com/202f0j00PoKcSNkCejbn/Applique-Embroidery-Design-Jeans-High-Stretch-Skinny-Light-Blue-Distressed-Denim-Jeans.webp", seller: "Denim King", discount: 50, reviews: [{ user: "Emre", rating: 4, text: "Tam oturdu" }] },
+    { id: 7, name: "Kış Ceketi Premium", category: "Moda", price: 9495, oldPrice: 18990, rating: 4.8, sales: 780, image: "https://img.kwcdn.com/product/fancy/e69b37a0-10e0-4cf1-a513-6c902d2ddd3e.jpg?imageMogr2/auto-orient%7CimageView2/2/w/800/q/70/format/webp", seller: "Winter", discount: 50, reviews: [{ user: "Fatma", rating: 5, text: "Çok sıcak!" }] },
+    { id: 8, name: "Oversized Sweatshirt Lüks", category: "Moda", price: 2245, oldPrice: 4490, rating: 4.3, sales: 1890, image: "https://floimages.mncdn.com/media/catalog/product/24-06/12/201244538-1-1718177346.jpg", seller: "Casual", isNew: true, discount: 50, reviews: [{ user: "Barış", rating: 4, text: "Rahat!" }] },
+    { id: 9, name: "Akıllı Saat Titanium", category: "Elektronik", price: 17495, oldPrice: 34990, rating: 4.9, sales: 3200, image: "https://cdn.dsmcdn.com/mnresize/420/620/ty723/product/media/images/20230209/11/278225667/854046311/1/1_org_zoom.jpg", seller: "Tech", isNew: true, discount: 50, reviews: [{ user: "Deniz", rating: 5, text: "Müthiş!" }] },
+    { id: 10, name: "Wireless Kulaklık Pro", category: "Elektronik", price: 6495, oldPrice: 12990, rating: 4.7, sales: 2890, image: "https://www.atombilisim.com.tr/dragos-sonics-bluetooth-wireless-kablosuz-kafa-bantli-gaming-kablosuz-pro-wireless-gaming-kulaklik-gaming-kulaklik-dragos-gaming-kulaklik-67280-75-B.jpg", seller: "Audio", discount: 50, reviews: [{ user: "Kadir", rating: 5, text: "Ses harika!" }] },
+    { id: 11, name: "Powerbank 50000mAh", category: "Elektronik", price: 3245, oldPrice: 6490, rating: 4.6, sales: 4100, image: "https://cdn.sandberg.world/products/images/lg/420-75_lg.jpg", seller: "Power", discount: 50, reviews: [{ user: "Alp", rating: 4, text: "Güzel!" }] },
+    { id: 12, name: "USB-C Kablo Pro", category: "Elektronik", price: 995, oldPrice: 1990, rating: 4.5, sales: 5600, image: "https://m.media-amazon.com/images/I/61XQF34BSWL._AC_UF1000,1000_QL80_.jpg", seller: "Cable", discount: 50, reviews: [{ user: "Hasan", rating: 5, text: "İyi!" }] },
+    { id: 13, name: "Gaming Mouse RGB", category: "Elektronik", price: 4495, oldPrice: 8990, rating: 4.8, sales: 1890, image: "https://www.comsis.com.tr/media/catalog/product/cache/b8c23f9cda695338d626ac41b127fd1a/f/r/frisby_fm-g3720k__gx30__gaming_mouse-2.jpg", seller: "Gamer", isNew: true, discount: 50, reviews: [{ user: "Furkan", rating: 5, text: "Perfect!" }] },
+    { id: 14, name: "Mechanical Keyboard Gaming", category: "Elektronik", price: 7995, oldPrice: 15990, rating: 4.7, sales: 1250, image: "https://m.media-amazon.com/images/I/71fRP7KY9hL._AC_UF1000,1000_QL80_.jpg", seller: "Gaming", discount: 50, reviews: [{ user: "Cem", rating: 5, text: "Harika!" }] },
+    { id: 15, name: "Webcam 4K Pro Studio", category: "Elektronik", price: 10995, oldPrice: 21990, rating: 4.6, sales: 890, image: "https://m.media-amazon.com/images/I/71UuQirlZhL._AC_UF1000,1000_QL80_.jpg", seller: "Video", discount: 50, reviews: [{ user: "Gözde", rating: 4, text: "Güzel!" }] },
+    { id: 16, name: "Smart Ampul", category: "Elektronik", price: 745, oldPrice: 1490, rating: 4.4, sales: 2100, image: "https://cdn.simart.cloud/uploads/webp/2026/02/69998773ba747_1771669363.webp", seller: "Smart", isNew: true, discount: 50, reviews: [{ user: "Işıl", rating: 4, text: "Kolay!" }] },
+    { id: 17, name: "Kol Saati Lüks", category: "Aksesuar", price: 9495, oldPrice: 18990, rating: 4.9, sales: 1240, image: "https://www.ersasaat.com.tr/Templates/Temp6/Content/assets/img/blog/detay/dunyanin-en-unlu-luks-banner-1.webp", seller: "Watch", discount: 50, reviews: [{ user: "İbrahim", rating: 5, text: "Harika!" }] },
+    { id: 18, name: "Güneş Gözlüğü", category: "Aksesuar", price: 2495, oldPrice: 4990, rating: 4.7, sales: 2340, image: "https://productimages.hepsiburada.net/s/777/375-375/110000678806560.jpg", seller: "Eyewear", discount: 50, reviews: [{ user: "Hazal", rating: 5, text: "Güzel!" }] },
+    { id: 19, name: "Deri Çanta İtalyan", category: "Aksesuar", price: 6495, oldPrice: 12990, rating: 4.8, sales: 890, image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=500", seller: "Leather", isNew: true, discount: 50, reviews: [{ user: "Ayşe", rating: 5, text: "Zarif!" }] },
+    { id: 20, name: "Beyzbol Şapka Premium", category: "Aksesuar", price: 1495, oldPrice: 2990, rating: 4.5, sales: 1560, image: "https://m.media-amazon.com/images/I/31wRQ91qsVL._AC_SY350_.jpg", seller: "Caps", discount: 50, reviews: [{ user: "Rıza", rating: 4, text: "İyi!" }] },
+    { id: 21, name: "Laptop Sırt Çantası", category: "Aksesuar", price: 1995, oldPrice: 3990, rating: 4.7, sales: 1340, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=500", seller: "Bag Store", discount: 50, reviews: [{ user: "Ege", rating: 5, text: "Çok kullanışlı!" }] },
+    { id: 22, name: "Telefon Kılıfı Deri", category: "Aksesuar", price: 995, oldPrice: 1990, rating: 4.5, sales: 2340, image: "https://onywatch.com.tr/cdn/shop/files/IMG_20240201_183327_edit_105245838984226.jpg?v=1706819020&width=2048", seller: "Phone Accessories", discount: 50, reviews: [{ user: "Serra", rating: 4, text: "Kaliteli!" }] },
+    { id: 23, name: "Kemer Deri ", category: "Aksesuar", price: 1745, oldPrice: 3490, rating: 4.6, sales: 980, image: "https://image.made-in-china.com/202f0j00FNSiDUZySqof/Hot-Selling-Original-Designer-Fashion-Decoration-Men-Leather-Belt-Luxury-Leather-Belt.webp", seller: "Belt Shop", discount: 50, reviews: [{ user: "Tarık", rating: 4, text: "Minimalist!" }] },
+    { id: 24, name: "Bilezik Gümüş Zincir", category: "Aksesuar", price: 3495, oldPrice: 6990, rating: 4.8, sales: 1420, image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=500", seller: "Jewelry Hub", isNew: true, discount: 50, reviews: [{ user: "Nur", rating: 5, text: "Çok güzel!" }] },
+    { id: 25, name: "C Vitamini Serum Pro", category: "Cilt Bakımı", price: 2245, oldPrice: 4490, rating: 4.9, sales: 3200, image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=500", seller: "Beauty", discount: 50, reviews: [{ user: "Leyla", rating: 5, text: "Müthiş!" }] },
+    { id: 26, name: "Krem Nemlendiricisi Lüks", category: "Cilt Bakımı", price: 1495, oldPrice: 2990, rating: 4.7, sales: 2800, image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&q=80&w=500", seller: "Dermo", discount: 50, reviews: [{ user: "Merve", rating: 5, text: "İyi!" }] },
+    { id: 27, name: "Misellar Su Premium", category: "Cilt Bakımı", price: 895, oldPrice: 1790, rating: 4.6, sales: 4100, image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&q=80&w=500", seller: "Skin", discount: 50, reviews: [{ user: "Sinem", rating: 4, text: "Etkili!" }] },
+    { id: 28, name: "Retinol Gece Kremi", category: "Cilt Bakımı", price: 2995, oldPrice: 5990, rating: 4.8, sales: 1560, image: "https://cdn.dsmcdn.com/mnresize/420/620/ty1594/prod/QC/20241026/19/933e9133-b126-303e-8d36-a79ff4b2d1da/1_org_zoom.jpg", seller: "Advanced", isNew: true, discount: 50, reviews: [{ user: "Hande", rating: 5, text: "Harika!" }] },
+    { id: 29, name: "Güneş Kremi SPF100", category: "Cilt Bakımı", price: 1745, oldPrice: 3490, rating: 4.7, sales: 2340, image: "https://image.made-in-china.com/202f0j00iMlhAcOIMLRd/Balry-Sun-Defense-Anti-Shine-SPF-100-High-Protection-Sunblock-for-Oily-Sensitive-Skin-PA-.webp", seller: "Sun", discount: 50, reviews: [{ user: "Pınar", rating: 5, text: "Hafif!" }] },
+    { id: 30, name: "Serum Hyalüronik Asit", category: "Cilt Bakımı", price: 1695, oldPrice: 3390, rating: 4.6, sales: 1670, image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&q=80&w=500", seller: "Hydro Labs", discount: 50, reviews: [{ user: "Buse", rating: 5, text: "Canlandırıyor!" }] },
+    { id: 31, name: "Fenerbahçe Forması", category: "Forma", price: 3245, oldPrice: 6490, rating: 5.0, sales: 4500, image: "https://assets.adidas.com/images/w_600,f_auto,q_auto/9ad440971dda405cb0122665357d7b81_9366/FENERBAHCE_UCUNCU_FORMA_COCUK_Mavi_KD9739_01_laydown.jpg", seller: "Fenerium", discount: 50, reviews: [{ user: "Şener", rating: 5, text: "Resmi!" }] },
+    { id: 32, name: "Galatasaray Forması", category: "Forma", price: 3245, oldPrice: 6490, rating: 5.0, sales: 4200, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaqC6-n1bEstnFINriG7evPOf8LGsJebHFag&s", seller: "GS Store", discount: 50, reviews: [{ user: "Ali", rating: 5, text: "Harika!" }] },
+    { id: 33, name: "Beşiktaş Forması", category: "Forma", price: 3245, oldPrice: 6490, rating: 4.9, sales: 3800, image: "https://cdn.dsmcdn.com/ty1505/product/media/images/prod/QC/20240826/16/aae478ca-5585-3601-ae67-776142d84703/1_org_zoom.jpg", seller: "Besiktas", discount: 50, reviews: [{ user: "Mehmet", rating: 5, text: "Güzel!" }] },
+    { id: 34, name: "Milli Takım Forması", category: "Forma", price: 2745, oldPrice: 5490, rating: 5.0, sales: 3200, image: "https://p-korayspor.sm.mncdn.com/mnresize/750/-/korayspor/products/IO8850-614_1.jpg", seller: "TFF", discount: 50, reviews: [{ user: "Özcan", rating: 5, text: "Gurur!" }] },
+    { id: 35, name: "Manchester United Forma", category: "Forma", price: 3745, oldPrice: 7490, rating: 4.9, sales: 2800, image: "https://minio.yalispor.com.tr/yalispor/images/adidas-mufc-h-jsy-y-cocuk-forma-1-1750411304.jpg", seller: "Football Shop", isNew: true, discount: 50, reviews: [{ user: "Seçkin", rating: 5, text: "Orijinal!" }] },
+    { id: 36, name: "Real Madrid Arda Güler Forması", category: "Forma", price: 3995, oldPrice: 7990, rating: 4.9, sales: 3100, image: "https://cdn03.ciceksepeti.com/cicek/kcm71338984-1/XL/real-madrid-arda-guler-2425-yeni-sezon-ic-saha-beyaz-futbol-formasi-kcm71338984-1-32c185eca42a40fd894f5f672f78915f.jpg", seller: "Madrid Store", isNew: true, discount: 50, reviews: [{ user: "Fikret", rating: 5, text: "Tasarım!" }] },
+    { id: 37, name: "Grand Blue Manga Cilt 1", category: "Kitap & Manga", price: 795, oldPrice: 1590, rating: 4.9, sales: 5600, image: "https://upload.wikimedia.org/wikipedia/en/e/e4/Grand_Blue_volume_1_cover.jpg", seller: "Manga House", isNew: true, discount: 50, reviews: [{ user: "Kaito", rating: 5, text: "Harika manga!" }] },
+    { id: 73, name: "Jujutsu Kaisen Manga Cilt 1", category: "Kitap & Manga", price: 795, oldPrice: 1590, rating: 4.9, sales: 5600, image: "https://upload.wikimedia.org/wikipedia/en/thumb/4/46/Jujutsu_kaisen.jpg/250px-Jujutsu_kaisen.jpg", seller: "Manga House", isNew: true, discount: 50, reviews: [{ user: "Kaito", rating: 5, text: "Çok İyi!" }] },
+{ id: 74, name: "Chainsaw Man Manga Cilt 1", category: "Kitap & Manga", price: 795, oldPrice: 1590, rating: 4.9, sales: 5600, image: "https://upload.wikimedia.org/wikipedia/en/2/24/Chainsawman.jpg", seller: "Manga House", isNew: true, discount: 50, reviews: [{ user: "Kaito", rating: 5, text: "Müthiş manga!" }] },
+{ id: 75, name: "Re Zero Light Novel Cilt 1", category: "Kitap & Manga", price: 795, oldPrice: 1590, rating: 4.9, sales: 5600, image: "https://m.media-amazon.com/images/I/81cNfgJEI-L._AC_UF894,1000_QL80_.jpg", seller: "Manga House", isNew: true, discount: 50, reviews: [{ user: "Kaito", rating: 5, text: "Harika Novel!" }] },
+{ id: 76, name: "Yotsubato! Manga Cilt 1", category: "Kitap & Manga", price: 795, oldPrice: 1590, rating: 4.9, sales: 5600, image: "https://upload.wikimedia.org/wikipedia/en/0/01/Yotsuba%26-vol1cover-jp.png", seller: "Manga House", isNew: true, discount: 50, reviews: [{ user: "Kaito", rating: 5, text: "Çok Eylenceli manga!" }] },
+    { id: 38, name: "Attack on Titan Manga", category: "Kitap & Manga", price: 745, oldPrice: 1490, rating: 4.8, sales: 4200, image: "https://m.media-amazon.com/images/I/81qPzeEO5IL.jpg", seller: "Anime Store", discount: 50, reviews: [{ user: "Yuki", rating: 5, text: "Aksiyon dolu!" }] },
+    { id: 39, name: "Python Programlama Kitabı", category: "Kitap & Manga", price: 1895, oldPrice: 3790, rating: 4.8, sales: 2450, image: "https://cdn.dsmcdn.com/ty1814/prod/QC_ENRICHMENT/20260122/09/61226326-53ba-3a3b-861c-8dce33ff94c9/1_org_zoom.jpg", seller: "Code Masters", discount: 50, reviews: [{ user: "Dev", rating: 5, text: "Kapsamlı!" }] },
+    { id: 40, name: "Türk Edebiyatı Klasikleri", category: "Kitap & Manga", price: 1495, oldPrice: 2990, rating: 4.7, sales: 2100, image: "https://www.kitapkolik.com/wp-content/uploads/2022/12/681189293027.jpg", seller: "Book Store", discount: 50, reviews: [{ user: "Umut", rating: 5, text: "Güzel kitaplar!" }] },
+    { id: 51, name: "Espresso Makinesi", category: "Ev & Mutfak", price: 9995, oldPrice: 19990, rating: 4.8, sales: 1250, image: "https://www.soyluavm.com/image/catalog/product_image/263780_1.png", seller: "Cafe Equipment", discount: 50, reviews: [{ user: "Deniz", rating: 5, text: "Kahveler!" }] },
+    { id: 52, name: "Elektrikli Kettle Smart", category: "Ev & Mutfak", price: 1495, oldPrice: 2990, rating: 4.6, sales: 3200, image: "https://static.ticimax.cloud/cdn-cgi/image/width=-,quality=85/3530/uploads/urunresimleri/buyuk/sage-ske825-the-smart-kettle-sage-341-98.jpg", seller: "Kitchen Pro", discount: 50, reviews: [{ user: "Nalan", rating: 4, text: "Hızlı!" }] },
+    { id: 53, name: "Blender Profesyonel", category: "Ev & Mutfak", price: 4495, oldPrice: 8990, rating: 4.7, sales: 1890, image: "https://cdn.karaca.com/image/000001000167325001/homend-artfood-4925h-profesyonel-blender-siyah-1200w-000001000167325001-1.jpg", seller: "Blender Zone", isNew: true, discount: 50, reviews: [{ user: "Tuğba", rating: 5, text: "Güçlü!" }] },
+    { id: 54, name: "Tava Teflon Premium", category: "Ev & Mutfak", price: 2245, oldPrice: 4490, rating: 4.5, sales: 2100, image: "https://cdn.dsmcdn.com/mnresize/420/620/ty1169/product/media/images/prod/SPM/PIM/20240213/10/098bde24-63ea-3148-a7a5-0fbc15c4c5b1/1_org_zoom.jpg", seller: "Cookware Plus", discount: 50, reviews: [{ user: "Pınar", rating: 4, text: "Yapışmıyor!" }] },
+];
+
+/* ─────────── STATE ───────────────────────────────────────────── */
+let cart = [];
+let favorites = [];
+let filteredProducts = [...products];
+let currentPage = 1;
+const PER_PAGE = 12;
+let selectedCategory = null;
+let currentUser = null; // { name, email, password }
+
+/* ─────────── AUTH: KULLANICI DEPOSU ─────────────────────────── */
+function getUsers() {
+    try { return JSON.parse(localStorage.getItem('tw_users') || '[]'); } catch { return []; }
+}
+function saveUsers(users) {
+    localStorage.setItem('tw_users', JSON.stringify(users));
+}
+
+/* ─────────── AUTH MODAL AÇMA/KAPAMA ─────────────────────────── */
+function openAuth(tab) {
+    document.getElementById('auth-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (tab) switchAuthTab(tab);
+    // Form temizle
+    ['login-email','login-pass','reg-name','reg-email','reg-pass','reg-pass2'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+    });
+    document.querySelectorAll('.auth-error-msg').forEach(e => e.classList.remove('show'));
+    document.querySelectorAll('.auth-input').forEach(e => e.classList.remove('error'));
+    const terms = document.getElementById('reg-terms');
+    if (terms) terms.checked = false;
+    checkPassStrength('');
+}
+
+function closeAuth() {
+    document.getElementById('auth-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.getElementById('auth-overlay').addEventListener('click', e => {
+    if (e.target.id === 'auth-overlay') closeAuth();
+});
+
+/* ─────────── SEKME DEĞİŞTİRME ───────────────────────────────── */
+function switchAuthTab(tab) {
+    document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+    document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+    document.getElementById('panel-login').classList.toggle('active', tab === 'login');
+    document.getElementById('panel-register').classList.toggle('active', tab === 'register');
+}
+
+/* ─────────── ŞİFRE GÖSTER/GİZLE ────────────────────────────── */
+function togglePassVisibility(inputId, btn) {
+    const input = document.getElementById(inputId);
+    const isPass = input.type === 'password';
+    input.type = isPass ? 'text' : 'password';
+    btn.innerHTML = isPass
+        ? `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`
+        : `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`;
+}
+
+/* ─────────── ŞİFRE GÜÇ KONTROLÜ ────────────────────────────── */
+function checkPassStrength(val) {
+    const bars = ['psb1','psb2','psb3','psb4'].map(id => document.getElementById(id));
+    const label = document.getElementById('pass-strength-label');
+    if (!bars[0]) return;
+
+    bars.forEach(b => { b.className = 'pass-strength-bar'; });
+    label.textContent = '';
+
+    if (!val) return;
+
+    let score = 0;
+    if (val.length >= 6) score++;
+    if (val.length >= 10) score++;
+    if (/[A-Z]/.test(val) && /[a-z]/.test(val)) score++;
+    if (/[0-9!@#$%^&*]/.test(val)) score++;
+
+    const levels = [
+        { cls: 'weak', text: 'Çok zayıf' },
+        { cls: 'weak', text: 'Zayıf' },
+        { cls: 'medium', text: 'Orta' },
+        { cls: 'medium', text: 'İyi' },
+        { cls: 'strong', text: 'Güçlü 💪' },
+    ];
+    const lvl = levels[Math.min(score, 4)];
+    for (let i = 0; i < score; i++) bars[i].classList.add(lvl.cls);
+    label.textContent = lvl.text;
+    label.style.color = lvl.cls === 'weak' ? 'var(--danger)' : lvl.cls === 'medium' ? '#f59e0b' : 'var(--success)';
+}
+
+/* ─────────── GİRİŞ YAP ──────────────────────────────────────── */
+function doLogin() {
+    const email = document.getElementById('login-email').value.trim();
+    const pass  = document.getElementById('login-pass').value;
+    let valid = true;
+
+    // Temizle
+    document.getElementById('login-email').classList.remove('error');
+    document.getElementById('login-pass').classList.remove('error');
+    document.getElementById('login-email-err').classList.remove('show');
+    document.getElementById('login-pass-err').classList.remove('show');
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById('login-email').classList.add('error');
+        document.getElementById('login-email-err').textContent = 'Geçerli bir e-posta girin';
+        document.getElementById('login-email-err').classList.add('show');
+        valid = false;
+    }
+    if (!pass) {
+        document.getElementById('login-pass').classList.add('error');
+        document.getElementById('login-pass-err').textContent = 'Şifrenizi girin';
+        document.getElementById('login-pass-err').classList.add('show');
+        valid = false;
+    }
+    if (!valid) return;
+
+    const users = getUsers();
+    const user = users.find(u => u.email === email && u.password === pass);
+
+    if (!user) {
+        document.getElementById('login-email').classList.add('error');
+        document.getElementById('login-pass').classList.add('error');
+        document.getElementById('login-pass-err').textContent = 'E-posta veya şifre hatalı';
+        document.getElementById('login-pass-err').classList.add('show');
+        return;
+    }
+
+    // Başarılı giriş
+    currentUser = user;
+    localStorage.setItem('tw_session', JSON.stringify(user));
+    closeAuth();
+    updateAccountUI();
+    showToast(`🎉 Hoşgeldiniz, ${user.name.split(' ')[0]}!`);
+}
+
+/* ─────────── KAYIT OL ───────────────────────────────────────── */
+function doRegister() {
+    const name  = document.getElementById('reg-name').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const pass  = document.getElementById('reg-pass').value;
+    const pass2 = document.getElementById('reg-pass2').value;
+    const terms = document.getElementById('reg-terms').checked;
+    let valid = true;
+
+    // Hepsini temizle
+    ['reg-name','reg-email','reg-pass','reg-pass2'].forEach(id => {
+        document.getElementById(id).classList.remove('error');
+    });
+    ['reg-name-err','reg-email-err','reg-pass-err','reg-pass2-err','reg-terms-err'].forEach(id => {
+        document.getElementById(id).classList.remove('show');
+    });
+
+    if (name.length < 3) {
+        document.getElementById('reg-name').classList.add('error');
+        document.getElementById('reg-name-err').classList.add('show');
+        valid = false;
+    }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById('reg-email').classList.add('error');
+        document.getElementById('reg-email-err').textContent = 'Geçerli bir e-posta girin';
+        document.getElementById('reg-email-err').classList.add('show');
+        valid = false;
+    } else {
+        const users = getUsers();
+        if (users.find(u => u.email === email)) {
+            document.getElementById('reg-email').classList.add('error');
+            document.getElementById('reg-email-err').textContent = 'Bu e-posta zaten kayıtlı';
+            document.getElementById('reg-email-err').classList.add('show');
+            valid = false;
         }
+    }
+    if (pass.length < 6) {
+        document.getElementById('reg-pass').classList.add('error');
+        document.getElementById('reg-pass-err').classList.add('show');
+        valid = false;
+    }
+    if (pass !== pass2) {
+        document.getElementById('reg-pass2').classList.add('error');
+        document.getElementById('reg-pass2-err').classList.add('show');
+        valid = false;
+    }
+    if (!terms) {
+        document.getElementById('reg-terms-err').classList.add('show');
+        valid = false;
+    }
+    if (!valid) return;
 
-        function toggleCart() {
-            document.getElementById('cart-sidebar').classList.toggle('active');
+    const users = getUsers();
+    const newUser = { name, email, password: pass, joinedAt: new Date().toISOString() };
+    users.push(newUser);
+    saveUsers(users);
+
+    // Otomatik giriş
+    currentUser = newUser;
+    localStorage.setItem('tw_session', JSON.stringify(newUser));
+    closeAuth();
+    updateAccountUI();
+    showToast(`🎉 Hesabınız oluşturuldu! Hoşgeldiniz, ${name.split(' ')[0]}!`);
+}
+
+/* ─────────── ÇIKIŞ YAP ──────────────────────────────────────── */
+function logoutUser() {
+    currentUser = null;
+    localStorage.removeItem('tw_session');
+    closeUserDropdown();
+    updateAccountUI();
+    showToast('👋 Başarıyla çıkış yapıldı');
+}
+
+/* ─────────── ŞİFREMİ UNUTTUM ────────────────────────────────── */
+function forgotPassword() {
+    const email = document.getElementById('login-email').value.trim();
+    if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showToast(`📧 Şifre sıfırlama bağlantısı ${email} adresine gönderildi (demo)`);
+    } else {
+        document.getElementById('login-email').focus();
+        document.getElementById('login-email').classList.add('error');
+        document.getElementById('login-email-err').textContent = 'Önce e-posta adresinizi girin';
+        document.getElementById('login-email-err').classList.add('show');
+    }
+}
+
+/* ─────────── HESAP BUTONU UI GÜNCELLE ───────────────────────── */
+function updateAccountUI() {
+    const guestBtn = document.getElementById('account-btn-guest');
+    const userBtn  = document.getElementById('account-btn-user');
+
+    if (currentUser) {
+        guestBtn.style.display = 'none';
+        userBtn.style.display  = 'flex';
+
+        const firstName = currentUser.name.split(' ')[0];
+        const initials  = currentUser.name.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
+
+        document.getElementById('user-display-name').textContent = firstName;
+        document.getElementById('user-avatar-initials').textContent = initials;
+        document.getElementById('dropdown-fullname').textContent = currentUser.name;
+        document.getElementById('dropdown-email').textContent = currentUser.email;
+    } else {
+        guestBtn.style.display = 'flex';
+        userBtn.style.display  = 'none';
+    }
+}
+
+/* ─────────── DROPDOWN AÇ/KAPAT ──────────────────────────────── */
+function toggleUserDropdown() {
+    document.getElementById('user-dropdown').classList.toggle('open');
+}
+function closeUserDropdown() {
+    document.getElementById('user-dropdown').classList.remove('open');
+}
+
+// Dışarı tıklanınca dropdown kapat
+document.addEventListener('click', e => {
+    const wrap = document.getElementById('account-btn-wrap');
+    if (wrap && !wrap.contains(e.target)) {
+        closeUserDropdown();
+    }
+});
+
+/* ─────────── NAV + FİLTRELER ────────────────────────────────── */
+function toggleSection(el) {
+    const content = el.nextElementSibling;
+    const isOpen = content.style.display !== 'none';
+    content.style.display = isOpen ? 'none' : '';
+    el.classList.toggle('collapsed', isOpen);
+}
+
+function clearAllFilters() {
+    document.querySelectorAll('.category-filter').forEach(c => c.checked = false);
+    document.querySelectorAll('input[name="price-filter"]').forEach(r => r.checked = false);
+    document.querySelectorAll('.rating-filter').forEach(r => r.checked = false);
+    const df = document.getElementById('discount-filter');
+    const nf = document.getElementById('new-filter');
+    if (df) df.checked = false;
+    if (nf) nf.checked = false;
+    selectedCategory = null;
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.nav-btn')?.classList.add('active');
+    applyFilters();
+}
+
+function init() {
+    renderNav();
+    loadFromLocalStorage();
+    applyFilters();
+    updateUI();
+    updateAccountUI();
+}
+
+function renderNav() {
+    const categories = ['Tümü', ...new Set(products.map(p => p.category))];
+    document.getElementById('nav-menu').innerHTML = categories.map((cat, i) => `
+        <button class="nav-btn ${i === 0 ? 'active' : ''}" onclick="filterByCategory('${cat}', this)">${cat}</button>
+    `).join('');
+
+    document.getElementById('category-filters').innerHTML = categories.slice(1).map(cat => `
+        <label class="filter-opt">
+            <input type="checkbox" class="category-filter" value="${cat}" onchange="applyFilters()">
+            <label>${cat}</label>
+        </label>
+    `).join('');
+}
+
+function filterByCategory(category, btn) {
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.category-filter').forEach(c => c.checked = false);
+    selectedCategory = category === 'Tümü' ? null : category;
+    currentPage = 1;
+    applyFilters();
+}
+
+function applyFilters() {
+    filteredProducts = products.filter(p => {
+        if (selectedCategory && p.category !== selectedCategory) return false;
+        const selCats = Array.from(document.querySelectorAll('.category-filter:checked')).map(c => c.value);
+        if (selCats.length > 0 && !selCats.includes(p.category)) return false;
+        const pf = document.querySelector('input[name="price-filter"]:checked')?.value;
+        if (pf) {
+            if (pf === '0-5000' && p.price > 5000) return false;
+            if (pf === '5000-15000' && (p.price < 5000 || p.price > 15000)) return false;
+            if (pf === '15000-50000' && (p.price < 15000 || p.price > 50000)) return false;
+            if (pf === '50000' && p.price < 50000) return false;
         }
+        const selRatings = Array.from(document.querySelectorAll('.rating-filter:checked')).map(c => parseInt(c.value));
+        if (selRatings.length > 0 && !selRatings.some(r => p.rating >= r)) return false;
+        if (document.getElementById('discount-filter')?.checked && !p.discount) return false;
+        if (document.getElementById('new-filter')?.checked && !p.isNew) return false;
+        return true;
+    });
+    currentPage = 1;
+    renderProducts();
+}
 
-        function checkout() {
-            if(cart.length === 0) return;
-            const total = cart.reduce((s,c) => s + c.price * c.qty, 0);
-            if(confirm(`Toplam: ${total.toLocaleString('tr-TR')} TL\n\nÖdemeyi onayla?`)) {
-                alert('🎉 Ödeme başarılı!\nSiparişiniz: ORD-' + Date.now());
-                cart = [];
-                updateUI();
-                toggleCart();
-                saveToLocalStorage();
-            }
+function applySort() {
+    const s = document.getElementById('sort-select').value;
+    if (s === 'price-asc') filteredProducts.sort((a, b) => a.price - b.price);
+    else if (s === 'price-desc') filteredProducts.sort((a, b) => b.price - a.price);
+    else if (s === 'rating') filteredProducts.sort((a, b) => b.rating - a.rating);
+    else if (s === 'sales') filteredProducts.sort((a, b) => b.sales - a.sales);
+    currentPage = 1;
+    renderProducts();
+}
+
+/* ─────────── ÜRÜN KARTLARI ──────────────────────────────────── */
+function renderProducts() {
+    const start = (currentPage - 1) * PER_PAGE;
+    const items = filteredProducts.slice(start, start + PER_PAGE);
+    const grid = document.getElementById('product-grid');
+
+    document.getElementById('results-text').textContent = `${filteredProducts.length} ürün`;
+
+    if (items.length === 0) {
+        grid.innerHTML = `<div class="no-results"><div class="no-results-icon">🔍</div><p>Ürün bulunamadı</p></div>`;
+        document.getElementById('pagination').innerHTML = '';
+        return;
+    }
+
+    grid.innerHTML = items.map(p => {
+        const save = Math.round((1 - p.price / p.oldPrice) * 100);
+        return `
+        <div class="product-card">
+            <div class="product-img-wrap">
+                <img src="${p.image}" class="product-img" loading="lazy" onclick="openModal(${p.id})" alt="${p.name}">
+                <div class="product-badges">
+                    ${p.isNew ? '<span class="pbadge pbadge-new">Yeni</span>' : ''}
+                    ${p.discount ? `<span class="pbadge pbadge-sale">-${p.discount}%</span>` : ''}
+                </div>
+                <button class="fav-btn ${favorites.includes(p.id) ? 'liked' : ''}" onclick="toggleFav(${p.id}, event)" aria-label="Favorilere ekle">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="${favorites.includes(p.id) ? '#ef4444' : 'none'}" stroke="${favorites.includes(p.id) ? '#ef4444' : 'currentColor'}" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="product-body">
+                <div class="product-cat">${p.category}</div>
+                <div class="product-name" onclick="openModal(${p.id})">${p.name}</div>
+                <div class="product-rating">
+                    <span class="stars">⭐</span>
+                    <span>${p.rating}</span>
+                    <span>(${p.sales.toLocaleString('tr-TR')})</span>
+                </div>
+                <div class="product-price-row">
+                    <span class="price-now">${p.price.toLocaleString('tr-TR')} TL</span>
+                    <span class="price-old">${p.oldPrice.toLocaleString('tr-TR')} TL</span>
+                    <span class="price-save">-%${save}</span>
+                </div>
+                <button class="add-btn" onclick="addToCart(${p.id})">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                    </svg>
+                    Sepete Ekle
+                </button>
+            </div>
+        </div>`;
+    }).join('');
+
+    renderPagination();
+}
+
+function renderPagination() {
+    const total = Math.ceil(filteredProducts.length / PER_PAGE);
+    if (total <= 1) { document.getElementById('pagination').innerHTML = ''; return; }
+    let html = '';
+    if (currentPage > 1) html += `<button class="page-btn page-btn-wide" onclick="goPage(${currentPage - 1})">← Önceki</button>`;
+    for (let i = 1; i <= total; i++) {
+        html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goPage(${i})">${i}</button>`;
+    }
+    if (currentPage < total) html += `<button class="page-btn page-btn-wide" onclick="goPage(${currentPage + 1})">Sonraki →</button>`;
+    document.getElementById('pagination').innerHTML = html;
+}
+
+function goPage(p) { currentPage = p; renderProducts(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+/* ─────────── ÜRÜN MODAL ─────────────────────────────────────── */
+function openModal(id) {
+    const p = products.find(pr => pr.id === id);
+    const save = (p.oldPrice - p.price).toLocaleString('tr-TR');
+    const saveP = Math.round((1 - p.price / p.oldPrice) * 100);
+    document.getElementById('modal-body').innerHTML = `
+        <img src="${p.image}" class="modal-img" alt="${p.name}">
+        <div class="modal-body-inner">
+            <div class="modal-cat">${p.category}</div>
+            <h2 class="modal-title">${p.name}</h2>
+            <p class="modal-seller">Satıcı: <strong>${p.seller}</strong></p>
+            <div class="modal-chips">
+                <span class="chip">⭐ ${p.rating}/5</span>
+                <span class="chip">📦 ${p.sales.toLocaleString('tr-TR')} satış</span>
+                ${p.discount ? `<span class="chip chip-orange">-%${saveP} İndirim</span>` : ''}
+                ${p.isNew ? '<span class="chip chip-orange">Yeni Ürün</span>' : ''}
+            </div>
+            <div class="modal-price-block">
+                <span class="modal-price-now">${p.price.toLocaleString('tr-TR')} TL</span>
+                <span class="modal-price-old">${p.oldPrice.toLocaleString('tr-TR')} TL</span>
+                <span class="modal-save-badge">💰 ${save} TL tasarruf</span>
+            </div>
+            <button class="modal-add-btn" onclick="addToCart(${p.id}); closeModal();">Sepete Ekle →</button>
+            <div class="reviews-title">Müşteri Yorumları</div>
+            ${p.reviews.map(r => `
+                <div class="review-item">
+                    <div class="review-header">
+                        <span class="review-user">${r.user}</span>
+                        <span>${'⭐'.repeat(r.rating)}</span>
+                    </div>
+                    <div class="review-text">${r.text}</div>
+                </div>
+            `).join('')}
+        </div>`;
+    document.getElementById('product-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    document.getElementById('product-modal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+/* ─────────── FAVORİLER ──────────────────────────────────────── */
+function toggleFav(id, e) {
+    e.stopPropagation();
+    favorites = favorites.includes(id) ? favorites.filter(f => f !== id) : [...favorites, id];
+    updateUI();
+    saveLS();
+    renderProducts();
+}
+
+function openFavorites() {
+    const fav = products.filter(p => favorites.includes(p.id));
+    showToast(fav.length ? `❤️ ${fav.length} favori ürününüz var` : '❤️ Favori listeniz boş');
+}
+
+/* ─────────── SEPET ──────────────────────────────────────────── */
+function addToCart(id) {
+    const p = products.find(pr => pr.id === id);
+    const ex = cart.find(c => c.id === id);
+    if (ex) ex.qty++;
+    else cart.push({ ...p, qty: 1 });
+    showToast(`✓ "${p.name.substring(0,28)}…" sepete eklendi`);
+    updateUI();
+    saveLS();
+}
+
+function removeFromCart(id) {
+    cart = cart.filter(c => c.id !== id);
+    updateUI();
+    saveLS();
+}
+
+function updateUI() {
+    const totalQty = cart.reduce((s, c) => s + c.qty, 0);
+    document.getElementById('cart-badge').textContent = totalQty;
+    const fb = document.getElementById('favorites-badge');
+    fb.textContent = favorites.length;
+    fb.style.display = favorites.length > 0 ? 'flex' : 'none';
+
+    const ci = document.getElementById('cart-items');
+    if (cart.length === 0) {
+        ci.innerHTML = `<div class="empty-cart"><div class="empty-cart-icon">🛒</div><p>Sepetiniz boş</p></div>`;
+        document.getElementById('checkout-btn').disabled = true;
+        document.getElementById('cart-total').textContent = '0 TL';
+    } else {
+        const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+        ci.innerHTML = cart.map(c => `
+            <div class="cart-item">
+                <img src="${c.image}" class="cart-img" alt="${c.name}">
+                <div>
+                    <div class="cart-item-name">${c.name}</div>
+                    <div class="cart-item-price">${c.price.toLocaleString('tr-TR')} TL</div>
+                    <div class="cart-item-qty">Adet: ${c.qty}</div>
+                </div>
+                <button class="cart-remove" onclick="removeFromCart(${c.id})">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                </button>
+            </div>`).join('');
+        document.getElementById('cart-total').textContent = total.toLocaleString('tr-TR') + ' TL';
+        document.getElementById('checkout-btn').disabled = false;
+    }
+}
+
+function toggleCart() { document.getElementById('cart-panel').classList.toggle('active'); }
+
+function checkout() {
+    if (!cart.length) return;
+    const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+    if (confirm(`Toplam: ${total.toLocaleString('tr-TR')} TL\n\nÖdemeyi onaylıyor musunuz?`)) {
+        showToast('🎉 Sipariş alındı! #ORD-' + Date.now().toString().slice(-6));
+        cart = [];
+        updateUI();
+        document.getElementById('cart-panel').classList.remove('active');
+        saveLS();
+    }
+}
+
+/* ─────────── SAYFA DEĞİŞTİR ────────────────────────────────── */
+function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(page + '-page').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ─────────── TEMA ───────────────────────────────────────────── */
+function toggleTheme() {
+    const isDark = document.body.classList.toggle('dark-mode');
+    document.getElementById('theme-icon-dark').style.display = isDark ? 'block' : 'none';
+    document.getElementById('theme-icon-light').style.display = isDark ? 'none' : 'block';
+    localStorage.setItem('tw_theme', isDark ? 'dark' : 'light');
+}
+
+/* ─────────── FORM / TOAST ───────────────────────────────────── */
+function sendMessage(e) {
+    e.preventDefault();
+    showToast('✅ Mesajınız gönderildi!');
+    e.target.reset();
+}
+
+function showToast(msg) {
+    document.querySelectorAll('.toast').forEach(t => t.remove());
+    const t = document.createElement('div');
+    t.className = 'toast';
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 3500);
+}
+
+/* ─────────── LOCAL STORAGE ──────────────────────────────────── */
+function saveLS() {
+    localStorage.setItem('tw_cart', JSON.stringify(cart));
+    localStorage.setItem('tw_fav',  JSON.stringify(favorites));
+}
+
+function loadFromLocalStorage() {
+    try {
+        const c = localStorage.getItem('tw_cart');
+        const f = localStorage.getItem('tw_fav');
+        const s = localStorage.getItem('tw_session');
+        if (c) cart = JSON.parse(c);
+        if (f) favorites = JSON.parse(f);
+        if (s) currentUser = JSON.parse(s);
+
+        if (localStorage.getItem('tw_theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('theme-icon-dark').style.display = 'block';
+            document.getElementById('theme-icon-light').style.display = 'none';
         }
+    } catch(e) {}
+}
 
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-        }
+/* ─────────── ARAMA ──────────────────────────────────────────── */
+document.getElementById('search-input').addEventListener('input', e => {
+    const q = e.target.value.toLowerCase().trim();
+    if (!q) { applyFilters(); return; }
+    filteredProducts = products.filter(p =>
+        p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)
+    );
+    currentPage = 1;
+    renderProducts();
+});
 
-        function showPage(page) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(page + '-page').classList.add('active');
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
+document.getElementById('product-modal').addEventListener('click', e => {
+    if (e.target.id === 'product-modal') closeModal();
+});
 
-        function openAccount() {
-            alert('👤 Giriş/Kayıt\n\nYakında özellik eklenir!');
-        }
+/* Enter ile form gönder */
+document.getElementById('login-pass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+document.getElementById('reg-pass2').addEventListener('keydown', e => { if (e.key === 'Enter') doRegister(); });
 
-        function sendMessage(e) {
-            e.preventDefault();
-            alert('✅ Mesajınız gönderildi!\nEn kısa sürede yanıt vereceğiz.');
-            e.target.reset();
-        }
-
-        function showToast(msg) {
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.textContent = msg;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
-        }
-
-        function saveToLocalStorage() {
-            localStorage.setItem('twistigo_cart', JSON.stringify(cart));
-            localStorage.setItem('twistigo_favorites', JSON.stringify(favorites));
-        }
-
-        function loadFromLocalStorage() {
-            const saved = localStorage.getItem('twistigo_cart');
-            const fav = localStorage.getItem('twistigo_favorites');
-            if(saved) cart = JSON.parse(saved);
-            if(fav) favorites = JSON.parse(fav);
-            if(localStorage.getItem('darkMode') === 'true') {
-                document.body.classList.add('dark-mode');
-            }
-        }
-
-        document.getElementById('search-input')?.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            if(!query) {
-                applyFilters();
-                return;
-            }
-            filteredProducts = products.filter(p => 
-                p.name.toLowerCase().includes(query) || 
-                p.category.toLowerCase().includes(query)
-            );
-            currentPage = 1;
-            renderProducts();
-        });
-
-        document.getElementById('product-modal')?.addEventListener('click', (e) => {
-            if(e.target.id === 'product-modal') closeModal();
-        });
-
-        init();
-    </script>
+init();
+</script>
 </body>
 </html>
